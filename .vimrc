@@ -102,11 +102,28 @@ endif
 let g:mustache_abbreviations = 1
 
 " nerdtree seetings
-let NERDTreeShowHidden = 1
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeIgnore=['node_modules', 'bower_components', '\.git']
+let NERDTreeIgnore=[
+      \'pemberly',
+      \'\.gradle$',
+      \'\.log$',
+      \'logs',
+      \'i18n',
+      \'node_modules',
+      \'dist',
+      \'tmp',
+      \'bower_components',
+      \'coverage',
+      \'build',
+      \'acl',
+      \'screenshots',
+      \'tools',
+      \'vendor',
+      \'docs',
+      \'out',
+      \'public']
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -181,6 +198,7 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  er
 " Personal key remapping
 let mapleader=","
 map <C-p> :CtrlP<CR>
+map <C-f> /
 map <C-n><C-t> :NERDTreeToggle<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>w :w!<CR>

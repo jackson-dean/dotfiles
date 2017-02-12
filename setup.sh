@@ -11,8 +11,9 @@ done
 read -p "Create hourly cron job to autocommit changes to dotfiles? [y/n] " input
 if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
   tmpfile="$HOME/crontab.tmp"
-  crontab -l > $tmpfile
-  echo '0 * * * * ~/dotfiles/auto_commit.sh' >> $tmpfile
+  echo 'MAILTO="jckson.dean@gmail.com"' >> $tmpfile
+  crontab -l >> $tmpfile
+  echo '0 * * * * ~/dotfiles/auto_commit.sh > dev/null' >> $tmpfile
   crontab $tmpfile
   rm -f $tmpfile
 fi

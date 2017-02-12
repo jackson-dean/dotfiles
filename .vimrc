@@ -106,6 +106,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeIgnore=['node_modules', 'bower_components', '\.git']
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

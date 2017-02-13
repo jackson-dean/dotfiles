@@ -183,6 +183,14 @@ let g:jsdoc_allow_input_prompt = 1
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 0
 
+" airblad/vim-gitgutter settings
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_removed_first_line = '●'
+let g:gitgutter_sign_modified_removed = '●'
+
 """ Start: vim-nerdtree-colors
 let s:yellow = "F2DD58"
 let s:green = "8FAA54"
@@ -198,6 +206,7 @@ let mapleader=","
 map <C-p> :CtrlP<CR>
 map <C-f> /
 map <C-n><C-t> :NERDTreeToggle<CR>
+nnoremap <Leader>cs :noh<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>wq :wq!<CR>
@@ -205,6 +214,7 @@ nnoremap <S-Tab> :bnext<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <Leader>gs :Gstatus<CR><C-w>t<C-w>H
+nnoremap <Leader>gb :Gblame<CR>
 nnoremap <F2> :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>-Q<Space>
 nnoremap <Leader>ar :Ack!<Space>

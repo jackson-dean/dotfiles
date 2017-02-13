@@ -33,7 +33,7 @@ Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the cu
 Plugin 'ervandew/supertab' " Tab autocompletion
 Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
 Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
-Plugin 'ternjs/tern_for_vim' " Javascript inference engine - dependency for tagbar
+" Plugin 'ternjs/tern_for_vim' " Javascript inference engine - dependency for tagbar
 Plugin 'heavenshell/vim-jsdoc' " Generate js doc blocks
 Plugin 'Yggdroot/indentLine' " Indent guide lines
 Plugin 'ryanoasis/vim-devicons' " Filetype icon support

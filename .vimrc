@@ -94,9 +94,7 @@ set expandtab " Convert tabs to spaces
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
 set wildignore+=*/node_modules/*,*/bower_components/*,*/.git/* " What to ignore for filename completion suggestions
 
-if filereadable(expand("$HOME/.vim/bundle/gruvbox/colors/gruvbox.vim"))
-  colorscheme gruvbox " Nice colors
-endif
+colorscheme gruvbox " Nice colors
 
 " vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1

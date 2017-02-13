@@ -94,16 +94,34 @@ set expandtab " Convert tabs to spaces
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
 set wildignore+=*/node_modules/*,*/bower_components/*,*/.git/* " What to ignore for filename completion suggestions
 
-if filereadable(expand("$HOME/.vim/bundle/gruvbox/colors/gruvbox.vim"))
-  colorscheme gruvbox " Nice colors
-endif
+colorscheme gruvbox " Nice colors
 
 " vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1
 
+" nerdtree seetings
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeIgnore=[
+      \'pemberly',
+      \'\.gradle$',
+      \'\.log$',
+      \'logs',
+      \'i18n',
+      \'node_modules',
+      \'dist',
+      \'tmp',
+      \'bower_components',
+      \'coverage',
+      \'build',
+      \'acl',
+      \'screenshots',
+      \'tools',
+      \'vendor',
+      \'docs',
+      \'out',
+      \'public']
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -178,6 +196,7 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  er
 " Personal key remapping
 let mapleader=","
 map <C-p> :CtrlP<CR>
+map <C-f> /
 map <C-n><C-t> :NERDTreeToggle<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>w :w!<CR>

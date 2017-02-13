@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias ..="cd .."
+alias .-="cd -"
 alias mv="mv -v"
 alias cp="cp -v"
 alias rm="rm -iv"

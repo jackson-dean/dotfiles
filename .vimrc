@@ -57,7 +57,7 @@ set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
 set nowrap " Disable line auto wrapping
 set mouse=a " Turn on the mouse ;)
-set fillchars+=vert:\│ " Solid pipe character for window split icon
+set fillchars+=vert:\┋ " Solid pipe character for window split icon
 set cursorline " highlight current line
 set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width

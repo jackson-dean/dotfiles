@@ -28,7 +28,7 @@ Plugin 'ryanoasis/vim-devicons' " Filetype icon support
 Plugin 'scrooloose/nerdcommenter' " Quickly toggle comment blocks
 Plugin 'scrooloose/nerdtree' " File explorer
 Plugin 'scrooloose/syntastic' " Linter
-" Plugin 'ternjs/tern_for_vim' " Javascript inference engine - dependency for tagbar
+Plugin 'ternjs/tern_for_vim' " Javascript inference engine - dependency for tagbar
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
 Plugin 'tomtom/tlib_vim' " Snipmate dependency
 Plugin 'tpope/vim-fugitive' " Git integration for vim

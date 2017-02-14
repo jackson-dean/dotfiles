@@ -62,6 +62,7 @@ set cursorline " highlight current line
 set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
+set lazyredraw
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -104,24 +105,24 @@ let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=[
-      \'pemberly',
-      \'\.gradle$',
-      \'\.log$',
-      \'logs',
-      \'i18n',
-      \'node_modules',
-      \'dist',
-      \'tmp',
-      \'bower_components',
-      \'coverage',
-      \'build',
-      \'acl',
-      \'screenshots',
-      \'tools',
-      \'vendor',
-      \'docs',
-      \'out',
-      \'public']
+      \'^pemberly$',
+      \'^\.gradle$',
+      \'^\.log$',
+      \'^logs$',
+      \'^i18n$',
+      \'^node_modules$',
+      \'^dist$',
+      \'^tmp$',
+      \'^bower_components$',
+      \'^coverage$',
+      \'^build$',
+      \'^acl$',
+      \'^screenshots$',
+      \'^tools$',
+      \'^vendor$',
+      \'^docs$',
+      \'^out$',
+      \'^public$']
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

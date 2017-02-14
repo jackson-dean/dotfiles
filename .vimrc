@@ -211,7 +211,8 @@ nnoremap <Leader>cs :noh<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>wq :wq!<CR>
-nnoremap <S-Tab> :bnext<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <Leader>gs :Gstatus<CR><C-w>t<C-w>H

@@ -126,6 +126,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
 
 " vmustache/vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1

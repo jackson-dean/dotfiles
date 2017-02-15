@@ -189,6 +189,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " mhinz/vim-startify
 let g:startify_change_to_vcs_root = 1

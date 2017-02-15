@@ -100,7 +100,13 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-colorscheme gruvbox " Nice colors
+if filereadable(expand("~/.vimrc_background"))
+  "let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+let base16colorspace=256
+colorscheme base16-tomorrow-night " Nice colors
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -136,8 +142,6 @@ let g:mustache_abbreviations = 1
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
-"let NERDTreeDirArrowExpandable = "📁"
-"let NERDTreeDirArrowCollapsible = "📁"
 let NERDTreeIgnore=[
       \'^pemberly$',
       \'^\.gradle$',
@@ -162,7 +166,12 @@ let NERDTreeIgnore=[
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_javascript_eslint_exec = "$PWD/node_modules/.bin/eslint"
+
+" prefer local eslint if it is available
+if executable(expand('$PWD/node_modules/.bin/eslint'))
+  let g:syntastic_javascript_eslint_exec = '$PWD/node_modules/.bin/eslint'
+endif
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
@@ -213,13 +222,13 @@ let g:jsdoc_allow_input_prompt = 1
 
 " Yggdroot/indentLine
 let g:indentLine_char = '┊'
-let g:indentLine_enabled = 1
+let g:indentLine_enabled = 0
 
 " airblade/vim-gitgutter settings
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '\ue702'
-let g:gitgutter_sign_modified = '\ue702'
-let g:gitgutter_sign_removed = '\ue702'
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
 let g:gitgutter_sign_removed_first_line = '●'
 let g:gitgutter_sign_modified_removed = '●'
 

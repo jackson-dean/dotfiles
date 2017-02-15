@@ -132,10 +132,12 @@ vnoremap < <<CR>gv
 " vmustache/vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1
 
-" scrooloose/nerdtree seetings
+" scrooloose/nerdtree setings
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+"let NERDTreeDirArrowExpandable = "📁"
+"let NERDTreeDirArrowCollapsible = "📁"
 let NERDTreeIgnore=[
       \'^pemberly$',
       \'^\.gradle$',
@@ -221,6 +223,9 @@ let g:gitgutter_sign_removed = '●'
 let g:gitgutter_sign_removed_first_line = '●'
 let g:gitgutter_sign_modified_removed = '●'
 
+" ryanoasis/vim-devicons
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
 " tiagofumo/vim-nerdtree-syntax-highlight
 let s:yellow = "F2DD58"
 let s:green = "8FAA54"
@@ -229,3 +234,4 @@ let g:NERDTreeExtensionHighlightColor['js'] = s:yellow " make js a brighter yell
 let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreeExtensionHighlightColor['json'] = s:green " make json green
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  error
+

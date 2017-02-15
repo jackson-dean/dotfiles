@@ -106,7 +106,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 let base16colorspace=256
-colorscheme base16-tomorrow-night " Nice colors
+colorscheme gruvbox " Nice colors
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

@@ -9,7 +9,7 @@ alias ll="ls -la"
 alias pyserve="python -m SimpleHTTPServer 8000"
 alias gosrc="cd $GOSRC"
 alias vimrc="vim $HOME/.vimrc"
-alias txa="tmux a -t"
+alias tmxa="tmux a -t"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 

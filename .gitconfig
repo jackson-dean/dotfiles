@@ -8,3 +8,4 @@
 	st = status
 	cam = commit --amend
 	rbu = review update
+	rbdc = review dcommit

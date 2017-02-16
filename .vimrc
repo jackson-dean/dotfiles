@@ -67,7 +67,7 @@ set lazyredraw
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
 set nobackup " no more weirdo backup files
-set backupdir=~/.backups " Where backups would go if we had them
+set backupdir=~/.backup " Where backups would go if we had them
 set dir=~/.swap " Where swap files would go if we had them
 
 " Split/window behavior
@@ -100,7 +100,11 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-colorscheme gruvbox " Nice colors
+if $TERM_PROGRAM =~ "iTerm"
+  set termguicolors
+endif
+
+colorscheme base16-tomorrow-night
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

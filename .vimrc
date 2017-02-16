@@ -224,11 +224,11 @@ let g:indentLine_enabled = 0
 
 " airblade/vim-gitgutter settings
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '■'
-let g:gitgutter_sign_removed = '▬'
-let g:gitgutter_sign_removed_first_line = '►'
-let g:gitgutter_sign_modified_removed = '■'
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_removed_first_line = '●'
+let g:gitgutter_sign_modified_removed = '●'
 
 " ryanoasis/vim-devicons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1

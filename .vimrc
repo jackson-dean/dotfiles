@@ -102,9 +102,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 if $TERM_PROGRAM =~ "iTerm"
   set termguicolors
+  colorscheme base16-tomorrow-night
 endif
-
-colorscheme base16-tomorrow-night
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

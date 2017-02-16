@@ -1,0 +1,10 @@
+[user]
+	name = Jackson Dean
+	email = jcdean@linkedin.com
+[alias]
+	co = checkout
+	cob = checkout -b
+	ap = add --patch
+	st = status
+	cam = commit --amend
+	rbu = review update

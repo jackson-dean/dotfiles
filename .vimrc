@@ -13,7 +13,7 @@ Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
 Plugin 'ervandew/supertab' " Tab autocompletion
 Plugin 'garbas/vim-snipmate' " Snippet manager
 Plugin 'gmarik/Vundle.vim' " Package manager
-Plugin 'heavenshell/vim-jsdoc' " Generate js doc blocks
+
 Plugin 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
 Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
 Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
@@ -193,6 +193,8 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " mhinz/vim-startify
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
 let g:startify_change_to_vcs_root = 1
 
 " mileszs/ack.vim
@@ -222,11 +224,11 @@ let g:indentLine_enabled = 0
 
 " airblade/vim-gitgutter settings
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '●'
-let g:gitgutter_sign_modified = '●'
-let g:gitgutter_sign_removed = '●'
-let g:gitgutter_sign_removed_first_line = '●'
-let g:gitgutter_sign_modified_removed = '●'
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '■'
+let g:gitgutter_sign_removed = '▬'
+let g:gitgutter_sign_removed_first_line = '►'
+let g:gitgutter_sign_modified_removed = '■'
 
 " ryanoasis/vim-devicons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1

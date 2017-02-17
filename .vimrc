@@ -117,6 +117,7 @@ nnoremap <Leader>wq :wq!<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 inoremap jj <Esc>
+inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
 nnoremap <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <Leader>gb :Gblame<CR>
@@ -162,20 +163,17 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" prefer local eslint if it is available
-if executable(expand('$PWD/node_modules/.bin/eslint'))
-  let g:syntastic_javascript_eslint_exec = '$PWD/node_modules/.bin/eslint'
-endif
-
+" scrooloose/syntastic settings
+let g:syntastic_javascript_eslint_exec = '$PWD/node_modules/.bin/eslint'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '❌'
-let g:syntastic_warning_symbol = '⚠️️'
-let g:syntastic_style_warning_symbol = '⚠️️'
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_style_error_symbol = '✖'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
 
 " ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim

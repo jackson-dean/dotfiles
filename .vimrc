@@ -102,7 +102,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set termguicolors
 " colorscheme base16-tomorrow-night
-colorscheme base16-solarized-dark
+colorscheme base16-oceanicnext
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -136,6 +136,7 @@ vnoremap < <<CR>gv
 let g:mustache_abbreviations = 1
 
 " scrooloose/nerdtree setings
+let NERDTreeMouseMode = 3
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -184,7 +185,7 @@ let g:ctrlp_custom_ignore = '\v[\/](logs|i18n|node_modules|dist|tmp|bower_compon
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='base16_solarized'
+let g:airline_theme='base16_ocean'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

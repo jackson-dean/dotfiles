@@ -115,6 +115,7 @@ map <C-n><C-t> :NERDTreeToggle<CR>
 nnoremap <Leader><CR> o<Esc>
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>wq :wq!<CR>
+nnoremap <Leader>wa :wa!<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 inoremap jj <Esc>
@@ -122,9 +123,9 @@ inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
 nnoremap <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <Leader>gb :Gblame<CR>
-nnoremap <F2> :TagbarToggle<CR>
-nnoremap <Leader>a :Ack!<Space>-Q<Space>
-nnoremap <Leader>ar :Ack!<Space>
+nnoremap <Leader>tb :TagbarToggle<CR>
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>aq :Ack!<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h

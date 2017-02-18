@@ -136,7 +136,7 @@ vnoremap < <<CR>gv
 let g:mustache_abbreviations = 1
 
 " scrooloose/nerdtree setings
-let NERDTreeMouseMode = 3
+let NERDTreeMouseMode = 2
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1

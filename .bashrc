@@ -18,6 +18,9 @@
 # Source global definitions
 [ -r /etc/bashrc ] && source /etc/bashrc
 
+# local/machine specifc config
+[ -r ~/.bashrc.local ] && source ~/.bashrc.local
+
 # Terminal fuzzy file search
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

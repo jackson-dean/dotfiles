@@ -63,6 +63,7 @@ set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw
+set signcolumn=yes
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -167,14 +168,16 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " scrooloose/syntastic settings
+let SignColumnBGC = synIDattr(hlID("SignColumn"), "bg")
+exe 'highlight SyntasticErrorSign guifg=red guibg='.SignColumnBGC
 let g:syntastic_javascript_eslint_exec = '$PWD/node_modules/.bin/eslint'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_style_error_symbol = 'X'
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_style_error_symbol = '✖'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '⚠'
 

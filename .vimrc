@@ -137,9 +137,9 @@ vnoremap < <<CR>gv
 " vmustache/vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1
 
-" scrooloose/nerdtree setings
+" scrooloose/nerdtree settings
 let NERDTreeMouseMode = 2
-let NERDTreeRespectWildIgnore = 1
+"let NERDTreeRespectWildIgnore = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=[

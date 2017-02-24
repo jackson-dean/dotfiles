@@ -13,6 +13,7 @@ Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
 Plugin 'ervandew/supertab' " Tab autocompletion
 Plugin 'garbas/vim-snipmate' " Snippet manager
 Plugin 'gmarik/Vundle.vim' " Package manager
+Plugin 'heavenshell/vim-jsdoc' " Easy doc blocks for js
 Plugin 'honza/vim-snippets' " Collection of snippets
 Plugin 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
 Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags

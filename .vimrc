@@ -184,7 +184,7 @@ let g:syntastic_style_warning_symbol = '⚠'
 
 " ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = '\v[\/](logs|i18n|node_modules|dist|tmp|bower_components|coverage|build|acl|screenshots)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](logs|i18n|node_modules|dist|tmp|bower_components|coverage|build|acl|screenshots|concat-stats-for)|(\.(swp|ico|git|svn))$'
 
 " vim-airline/vim-airline
 let g:airline_powerline_fonts = 1

@@ -65,7 +65,7 @@ set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw
 set signcolumn=yes " Always show the signcolumn
-2mat ErrorMsg '\%>100v.\+' " Highlight first character in text spanning more than 100 columns
+2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files

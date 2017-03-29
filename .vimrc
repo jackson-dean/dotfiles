@@ -65,10 +65,7 @@ set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw
 set signcolumn=yes " Always show the signcolumn
-" set colorcolumn=100 " Display a ruler at 100 chars
-
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+2mat ErrorMsg '\%>100v.\+' " Highlight first character in text spanning more than 100 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files

@@ -64,7 +64,11 @@ set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw
-set signcolumn=yes
+set signcolumn=yes " Always show the signcolumn
+" set colorcolumn=100 " Display a ruler at 100 chars
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -248,4 +252,3 @@ let g:NERDTreeExtensionHighlightColor['js'] = s:yellow " make js a brighter yell
 let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreeExtensionHighlightColor['json'] = s:green " make json green
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  error
-

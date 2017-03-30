@@ -10,3 +10,4 @@
 	rbu = review update
 	rbdc = review dcommit
 	l = log
+	b = branch

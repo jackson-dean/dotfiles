@@ -63,7 +63,7 @@ set cursorline " highlight current line
 set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
-set lazyredraw
+set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
 2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 

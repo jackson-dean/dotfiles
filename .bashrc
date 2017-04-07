@@ -37,7 +37,7 @@ reset=$(tput -Txterm sgr0)
 
 export GOPATH=$HOME/work
 export GOSRC=$GOPATH/src/github.com/jackson-dean
-export PS1='\[$reset\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black\] \[\033[0;33m\]$(__vcs_name)\[\033[00m\]\n\[$reset\]\[$reset\]\$ '
+export PS1='\[$pink\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black\] \[\033[0;33m\]$(__vcs_name)\[\033[00m\]\n\[$reset\]\[$reset\]\$ '
 export PATH=$PATH:$HOME/LinkedIn/bin:$GOPATH/bin
 export EDITOR=vim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'

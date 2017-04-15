@@ -115,20 +115,24 @@ let mapleader=","
 map <C-p> :CtrlP<CR>
 map <C-f> /
 map <C-n><C-t> :NERDTreeToggle<CR>
-nnoremap <Leader><CR> o<Esc>
-nnoremap <Leader>w :w!<CR>
-nnoremap <Leader>wq :wq!<CR>
-nnoremap <Leader>wa :wa!<CR>
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
+nnoremap <silent> <S-left> :vertical resize -10<CR>
+nnoremap <silent> <S-right> :vertical resize +10<CR>
+nnoremap <silent> <S-up> :resize +10<CR>
+nnoremap <silent> <S-down> :resize -10<CR>
+nnoremap <silent> <Leader><CR> o<Esc>
+nnoremap <silent> <Leader>w :w!<CR>
+nnoremap <silent> <Leader>wq :wq!<CR>
+nnoremap <silent> <Leader>wa :wa!<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
 inoremap jj <Esc>
 inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
-nnoremap <Leader>gs :Gstatus<CR><C-w>t<C-w>H
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>tb :TagbarToggle<CR>
-nnoremap <Leader>a :Ack!<Space>
-nnoremap <Leader>aq :Ack!<Space>-Q<Space>
+nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>tb :TagbarToggle<CR>
+nnoremap <Leader>a :Ack<Space>
+nnoremap <Leader>aq :Ack<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h

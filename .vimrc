@@ -165,6 +165,9 @@ let NERDTreeIgnore=[
       \'^public$',
       \'^concat-stats-for$']
 
+" scrooloose/nerdcommenter
+let NERDSpaceDelims=1
+
 " scrooloose/syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

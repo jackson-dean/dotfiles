@@ -21,6 +21,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 Plugin 'mhinz/vim-startify' " Fancy start screen showing recently edited files
 Plugin 'mileszs/ack.vim' " Vim ack/ag integration
 Plugin 'mustache/vim-mustache-handlebars' " Handlebars syntax enhancements
+Plugin 'mxw/vim-jsx' " React/jsx support
 Plugin 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
 Plugin 'othree/html5.vim' " HTML5 syntax enhancements
 Plugin 'pangloss/vim-javascript' " Better es6/es2015 syntax support
@@ -208,23 +209,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " mhinz/vim-startify
-let g:startify_custom_header = [
-      \ '        ________ ++     ________ ',
-      \ '       /VVVVVVVV\++++  /VVVVVVVV\ ',
-      \ '       \VVVVVVVV/++++++\VVVVVVVV/ ',
-      \ '        |VVVVVV|++++++++/VVVVV/' ',
-      \ '        |VVVVVV|++++++/VVVVV/' ',
-      \ '       +|VVVVVV|++++/VVVVV/'+ ',
-      \ '     +++|VVVVVV|++/VVVVV/'+++++ ',
-      \ '   +++++|VVVVVV|/VVVVV/'+++++++++ ',
-      \ '     +++|VVVVVVVVVVV/'+++++++++ ',
-      \ '       +|VVVVVVVVV/'+++++++++ ',
-      \ '        |VVVVVVV/'+++++++++ ',
-      \ '        |VVVVV/'+++++++++ ',
-      \ '        |VVV/'+++++++++ ',
-      \ '        \'V/'   ++++++ ',
-      \ '                 ++ '
-      \]
+let g:startify_custom_header = []
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 let g:startify_change_to_vcs_root = 1

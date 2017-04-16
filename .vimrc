@@ -41,7 +41,7 @@ Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
 Plugin 'Yggdroot/indentLine' " Indent guide lines
 
-" Color Themes
+" colorschemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'dikiaap/minimalist'

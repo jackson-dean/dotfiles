@@ -106,7 +106,7 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set termguicolors
-colorscheme gruvbox
+colorscheme base16-oceanicnext
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -200,7 +200,7 @@ let g:ctrlp_custom_ignore = '\v[\/](logs|i18n|node_modules|dist|tmp|bower_compon
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='badwolf'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

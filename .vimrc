@@ -126,6 +126,7 @@ nnoremap <silent> <Leader>wq :wq!<CR>
 nnoremap <silent> <Leader>wa :wa!<CR>
 nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprev<CR>
+nnoremap <silent> <Leader>c :noh<CR>
 inoremap jj <Esc>
 inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
@@ -200,7 +201,7 @@ let g:ctrlp_custom_ignore = '\v[\/](logs|i18n|node_modules|dist|tmp|bower_compon
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='powerline'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

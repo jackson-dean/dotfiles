@@ -106,7 +106,7 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set termguicolors
-colorscheme base16-oceanicnext
+colorscheme minimalist
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

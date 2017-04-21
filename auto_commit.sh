@@ -13,13 +13,12 @@ cd $HOME/dotfiles && \
   # Create a temp copy of our local master
   git branch $TMP_BRANCH
 
-  # branch creation failing intermittently for some reason. Exit with error if this happens
-  if [[ ! `git branch --list $TMP_BRANCH` ]]; then
+  # branch creation failing intermittently for some reason. We'll just
+  # keep retrying until it succeeds
+  while [[ ! `git branch --list $TMP_BRANCH` ]]; do
     echo "Failed creating branch $TMP_BRANCH. Retrying..."
-    while [[ ! `git branch --list $TMP_BRANCH` ]]; do
-      git branch $TMP_BRANCH
-    done
-  fi
+    git branch $TMP_BRANCH
+  done
 
   # Fetch remote changes
   git fetch --all && \

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TMP_BRANCH='tmp-master'
+TMP_BRANCH='tmp'
 
 cd $HOME/dotfiles && \
 

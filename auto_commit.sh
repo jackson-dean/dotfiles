@@ -19,6 +19,8 @@ cd $HOME/dotfiles && \
   # Force local master to mirror remote master
   git reset --hard origin/master
 
+  [[ `git branch --list $TMP_BRANCH` ]] && echo 'BRANCH EXISTS!!!!'
+
   # Merge in our local master copy, favoring our local changes for merge conflict resolution strategy
   git merge -m "Merging tmp-master" -X theirs $TMP_BRANCH && \
 

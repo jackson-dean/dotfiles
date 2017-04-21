@@ -15,8 +15,10 @@ cd $HOME/dotfiles && \
 
   # branch creation failing intermittently for some reason. Exit with error if this happens
   if [[ ! `git branch --list $TMP_BRANCH` ]]; then
-    echo "Failed creating branch $TMP_BRANCH"
-    exit 1
+    echo "Failed creating branch $TMP_BRANCH. Retrying..."
+    while [[ ! `git branch --list $TMP_BRANCH` ]]; do
+      git branch $TMP_BRANCH
+    done
   fi
 
   # Fetch remote changes

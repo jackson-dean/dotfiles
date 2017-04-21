@@ -3,6 +3,8 @@
 TMP_BRANCH='tmp'
 
 cd $HOME/dotfiles && \
+  # delete the tmp branch if it exists
+  [[ -z `git branch --list $TMP_BRANCH` ]] && git branch -D $TMP_BRANCH
 
   # Add and commit any local changes
   git add --all && \
@@ -19,9 +21,6 @@ cd $HOME/dotfiles && \
 
   # Merge in our local master copy, favoring our local changes for merge conflict resolution strategy
   git merge -m "Merging tmp-master" -X theirs $TMP_BRANCH && \
-
-  # Remove our temporary master copy
-  # git branch -D $TMP_BRANCH && \
 
   # Force remote to accept any new changes
   git push -f origin master

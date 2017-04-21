@@ -47,6 +47,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'dikiaap/minimalist'
 Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-vividchalk'
 
 call vundle#end()
 " End: Vundle Package Manager Settings

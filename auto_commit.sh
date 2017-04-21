@@ -4,7 +4,7 @@ TMP_BRANCH='tmp'
 
 cd $HOME/dotfiles && \
   # delete the tmp branch if it exists
-  [[ -z `git branch --list $TMP_BRANCH` ]] && git branch -D $TMP_BRANCH
+  [[ `git branch --list $TMP_BRANCH` ]] && git branch -D $TMP_BRANCH
 
   # Add and commit any local changes
   git add --all && \

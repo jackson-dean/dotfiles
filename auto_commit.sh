@@ -21,7 +21,7 @@ cd $HOME/dotfiles && \
   git merge -m "Merging tmp-master" -X theirs $TMP_BRANCH && \
 
   # Remove our temporary master copy
-  git branch -D $TMP_BRANCH && \
+  # git branch -D $TMP_BRANCH && \
 
   # Force remote to accept any new changes
   git push -f origin master

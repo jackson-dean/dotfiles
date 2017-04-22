@@ -112,6 +112,9 @@ colorscheme base16-tomorrow-night
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" User defined commands
+command Find Ack!
+
 " Personal key remapping
 let mapleader=","
 map <C-p> :CtrlP<CR>
@@ -134,8 +137,8 @@ vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
-nnoremap <Leader>a :Ack<Space>
-nnoremap <Leader>aq :Ack<Space>-Q<Space>
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>aq :Ack!<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -189,10 +192,10 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = '✕'
-let g:syntastic_style_error_symbol = '✕'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_style_error_symbol = '✖'
+let g:syntastic_warning_symbol = '✖'
+let g:syntastic_style_warning_symbol = '✖'
 
 " ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -243,9 +246,9 @@ let g:indentLine_enabled = 0
 
 " airblade/vim-gitgutter settings
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '●'
-let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '●'
 let g:gitgutter_sign_modified_removed = '●'
 

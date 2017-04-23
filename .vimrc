@@ -48,6 +48,7 @@ Plugin 'dikiaap/minimalist'
 Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-vividchalk'
+Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()
 " End: Vundle Package Manager Settings
@@ -107,13 +108,10 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set termguicolors
-colorscheme base16-tomorrow-night
+colorscheme monokai
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
-
-" User defined commands
-command Find Ack!
 
 " Personal key remapping
 let mapleader=","

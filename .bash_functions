@@ -28,20 +28,6 @@ findreplace() {
   find ./ -type f -exec sed -i -e "s${delimiter}${1}${delimiter}${2}${delimiter}g" {} \;
 }
 
-#kill's all processes that match the grep pattern
-#example: `kill_all Safari` will kill all processes containing the text Safari
-kill_all() {
-  PIDS=`ps aux | grep -v "grep $1" | grep -E "/$1\s|\s$1\s" | awk '{print $2}'`
-  if [[ -z "$PIDS" ]]; then
-  	echo "No processes found for $1"
-  else
-    for pid in $PIDS; do
-      echo "Killing process: $pid $(ps -p $pid -o comm=)"
-      kill -9 $pid
-    done
-  fi
-}
-
 function extract() {
 	if [ -f "$1" ] ; then
 		local filename=$(basename "$1")

@@ -31,3 +31,5 @@ cd $HOME/dotfiles && \
 
   # Force remote to accept any new changes
   git push -f origin master
+
+exit 0

@@ -241,7 +241,7 @@ let g:jsdoc_allow_input_prompt = 1
 
 " Yggdroot/indentLine
 let g:indentLine_char = '┊'
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 
 " airblade/vim-gitgutter settings
 let g:gitgutter_sign_column_always = 1

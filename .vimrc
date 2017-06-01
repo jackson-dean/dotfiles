@@ -95,8 +95,7 @@ let &tabstop=g:indentation_depth " Set tab character width
 let &backspace=g:indentation_depth " Make backspace work like a sane person would expect
 let &shiftwidth=g:indentation_depth " Set distance to move lines or blocks
 let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
-set autoindent " keeps indention at current depth for successive lines
-set copyindent " copy the previous indentation on autoindenting
+set smartindent
 set expandtab " Convert tabs to spaces
 
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
@@ -141,6 +140,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+nnoremap <Leader>nf :NERDTreeFind<CR>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 

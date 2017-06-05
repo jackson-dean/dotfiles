@@ -107,7 +107,7 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set termguicolors
-colorscheme base16-tomorrow-night
+colorscheme base16-monokai
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -204,7 +204,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='base16_tomorrow'
+let g:airline_theme='base16_monokai'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

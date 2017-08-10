@@ -11,3 +11,4 @@
 	rbdc = review dcommit
 	l = log
 	b = branch
+  sb = switchbranch

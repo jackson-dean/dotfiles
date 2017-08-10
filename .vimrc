@@ -20,7 +20,7 @@ Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
 Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 Plugin 'mhinz/vim-startify' " Fancy start screen showing recently edited files
 Plugin 'mileszs/ack.vim' " Vim ack/ag integration
-Plugin 'mustache/vim-mustache-handlebars' " Handlebars syntax enhancements
+Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'mxw/vim-jsx' " React/jsx support
 Plugin 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
 Plugin 'othree/html5.vim' " HTML5 syntax enhancements
@@ -49,11 +49,12 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'crusoexia/vim-monokai'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 call vundle#end()
 " End: Vundle Package Manager Settings
 
-filetype plugin indent on " Allow smart indentation and filetype detection
+filetype plugin on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 syntax enable " Turn on syntax highlighting
 set t_Co=256 " Enable pretty colors
@@ -69,6 +70,7 @@ set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
+set pastetoggle=<F2> " Quick paste toggle
 2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 
 " Swap/Backup file settings
@@ -90,13 +92,13 @@ set incsearch " Add live highlighting to matches while typing search term
 
 
 " Indentation settings
-let g:indentation_depth = 2
-let &tabstop=g:indentation_depth " Set tab character width
-let &backspace=g:indentation_depth " Make backspace work like a sane person would expect
-let &shiftwidth=g:indentation_depth " Set distance to move lines or blocks
-let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
-set smartindent
 set expandtab " Convert tabs to spaces
+set smartindent
+let g:indentation_depth = 2
+let &shiftwidth=g:indentation_depth " Set distance to move lines or blocks
+let &tabstop=g:indentation_depth " Set tab character width
+let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
+let &backspace=g:indentation_depth " Make backspace work like a sane person would expect
 
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
 set wildignore+=*/node_modules/*,*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ignore for filename completion suggestions
@@ -106,8 +108,11 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" Force .src files to use xml syntax
+au BufNewFile,BufRead *.src setlocal ft=xml
+
 set termguicolors
-colorscheme base16-monokai
+colorscheme solarized-custom
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -153,7 +158,6 @@ let NERDTreeMouseMode = 2
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=[
-      \'^pemberly$',
       \'^\.gradle$',
       \'^\.log$',
       \'^logs$',
@@ -202,9 +206,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 
 " vim-airline/vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
-let g:airline_theme='base16_monokai'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''
@@ -244,7 +248,7 @@ let g:indentLine_char = '┊'
 let g:indentLine_enabled = 1
 
 " airblade/vim-gitgutter settings
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '✎'
 let g:gitgutter_sign_removed = '－'

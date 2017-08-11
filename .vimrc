@@ -54,7 +54,7 @@ Plugin 'rafi/awesome-vim-colorschemes'
 call vundle#end()
 " End: Vundle Package Manager Settings
 
-filetype plugin on " Allow smart indentation and filetype detection
+filetype plugin indent on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 syntax enable " Turn on syntax highlighting
 set t_Co=256 " Enable pretty colors
@@ -93,8 +93,7 @@ set incsearch " Add live highlighting to matches while typing search term
 
 " Indentation settings
 set expandtab " Convert tabs to spaces
-set smartindent
-let g:indentation_depth = 2
+let g:indentation_depth = 2 " Number of spaces to indent
 let &shiftwidth=g:indentation_depth " Set distance to move lines or blocks
 let &tabstop=g:indentation_depth " Set tab character width
 let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
@@ -129,17 +128,18 @@ nnoremap <silent> <S-down> :resize -10<CR>
 nnoremap <silent> <Leader><CR> o<Esc>
 nnoremap <silent> <Leader>w :w!<CR>
 nnoremap <silent> <Leader>wq :wq!<CR>
-nnoremap <silent> <Leader>wa :wa!<CR>
+nnoremap <silenT> <Leader>wa :wa!<CR>
 nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprev<CR>
 nnoremap <silent> <Leader>c :noh<CR>
 inoremap jj <Esc>
-inoremap <C-S-p> <C-R>"
+" inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
+nnoremap ra :Ack!<Space><C-R>"
 nnoremap <Leader>aq :Ack!<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -208,7 +208,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
-let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

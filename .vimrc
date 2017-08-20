@@ -6,21 +6,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Utility Packages
+Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
+Plugin 'SirVer/ultisnips' " Snippet manager
+Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
+Plugin 'Yggdroot/indentLine' " Indent guide lines
 Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
 Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy filename matcher
 Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
 Plugin 'ervandew/supertab' " Tab autocompletion
-Plugin 'garbas/vim-snipmate' " Snippet manager
 Plugin 'gmarik/Vundle.vim' " Package manager
 Plugin 'heavenshell/vim-jsdoc' " Easy doc blocks for js
 Plugin 'honza/vim-snippets' " Collection of snippets
 Plugin 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
+Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
-Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 Plugin 'mhinz/vim-startify' " Fancy start screen showing recently edited files
 Plugin 'mileszs/ack.vim' " Vim ack/ag integration
-Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'mxw/vim-jsx' " React/jsx support
 Plugin 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
 Plugin 'othree/html5.vim' " HTML5 syntax enhancements
@@ -35,11 +37,9 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
 Plugin 'tomtom/tlib_vim' " Snipmate dependency
 Plugin 'tpope/vim-fugitive' " Git integration for vim
 Plugin 'tpope/vim-surround' " Plugin for working with quotes/braces/brackets etc
-Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
 Plugin 'vim-airline/vim-airline' " Fancy statusbar
 Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
-Plugin 'Yggdroot/indentLine' " Indent guide lines
 
 " colorschemes
 Plugin 'altercation/vim-colors-solarized'
@@ -71,7 +71,8 @@ set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
 set pastetoggle=<F2> " Quick paste toggle
-2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
+set colorcolumn=100 " Vertical rule at 100 columns
+" 2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -206,7 +207,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 
 " vim-airline/vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -266,3 +267,7 @@ let g:NERDTreeExtensionHighlightColor['js'] = s:yellow " make js a brighter yell
 let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreeExtensionHighlightColor['json'] = s:green " make json green
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  error
+
+" SirVer/ultisips
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips" " personal snippets directory
+let g:UltiSnipsSnippetDirectories   = ["UltiSnips"]

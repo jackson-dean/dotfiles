@@ -28,7 +28,7 @@ let s:pink = "f92672"
 let s:burntOrange = "cb4b16"
 let s:orange = "DF8411"
 let s:mustardYellow = "b58900"
-let s:neonGreen = "7FC70B"
+let s:neonGreen = "A6E22E"
 let s:green = "65AD00"
 let s:cyan = "2aa198"
 let s:neonCyan = "2DFFFE"
@@ -177,7 +177,7 @@ call <sid>hi("Float",        s:burntOrange, "", s:cterm09, "", "", "")
 call <sid>hi("Function",     s:neonCyan, "", s:cterm0D, "", "", "")
 call <sid>hi("Identifier",   s:pink, "", s:cterm08, "", "none", "")
 call <sid>hi("Include",      s:neonCyan, "", s:cterm0D, "", "", "")
-call <sid>hi("Keyword",      s:neonYellow, "", s:cterm0E, "", "", "")
+call <sid>hi("Keyword",      s:magenta, "", s:cterm0E, "", "", "")
 call <sid>hi("Label",        s:veryLightGray, "", s:cterm0A, "", "", "")
 call <sid>hi("Number",       s:neonOrange, "", s:cterm09, "", "", "")
 call <sid>hi("Operator",     s:almostWhite, "", s:cterm05, "", "none", "")
@@ -258,11 +258,11 @@ call <sid>hi("javaScriptBraces",  s:almostWhite, "", s:cterm05, "", "", "")
 call <sid>hi("javaScriptNumber",  s:pink, "", s:cterm09, "", "", "")
 " pangloss/vim-javascript highlighting
 call <sid>hi("jsOperator",          s:neonCyan, "", s:cterm0D, "", "", "")
-call <sid>hi("jsStatement",         s:neonYellow, "", s:cterm0E, "", "", "")
+call <sid>hi("jsStatement",         s:pink, "", s:cterm0E, "", "bold", "")
 call <sid>hi("jsReturn",            s:purple, "", s:cterm0E, "", "", "")
 call <sid>hi("jsThis",              s:magenta, "", s:cterm08, "", "", "")
 call <sid>hi("jsClassDefinition",   s:neonOrange, "", s:cterm0A, "", "bold", "")
-call <sid>hi("jsFunction",          s:neonCyan, "", s:cterm0E, "", "", "")
+call <sid>hi("jsFunction",          s:purple, "", s:cterm0E, "", "", "")
 call <sid>hi("jsFuncName",          s:neonCyan, "", s:cterm0D, "", "", "")
 call <sid>hi("jsFuncCall",          s:cyan, "", s:cterm0D, "", "", "")
 call <sid>hi("jsClassFuncName",     s:neonCyan, "", s:cterm0D, "", "", "")

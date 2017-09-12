@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " GUI color definitions
-let s:base = "00121D"
+let s:base = "051722"
 let s:base1 = "0A1C27"
 let s:base2 = "073642"
 let s:base3 = "586e75"
@@ -109,7 +109,7 @@ call <sid>hi("CursorLine",    "", s:base1, "", s:cterm01, "none", "")
 call <sid>hi("CursorLineNr",  s:base5, s:base1, s:cterm04, s:cterm01, "", "")
 call <sid>hi("Debug",         s:red, "", s:cterm08, "", "", "")
 call <sid>hi("Directory",     s:cyan, "", s:cterm0D, "", "", "")
-call <sid>hi("Error",         s:base, s:red, s:cterm00, s:cterm08, "", "")
+call <sid>hi("Error",         s:red, s:base, s:cterm00, s:cterm08, "", "")
 call <sid>hi("ErrorMsg",      s:red, s:base, s:cterm08, s:cterm00, "", "")
 call <sid>hi("Exception",     s:orange, "", s:cterm08, "", "", "")
 call <sid>hi("FoldColumn",    s:cyan, s:base2, s:cterm0C, s:cterm01, "", "")
@@ -128,7 +128,7 @@ call <sid>hi("PMenuSel",      s:base2, s:base6, s:cterm01, s:cterm05, "", "")
 call <sid>hi("Question",      s:blue, "", s:cterm0D, "", "", "")
 call <sid>hi("QuickFixLine",  "", s:base2, "", s:cterm01, "none", "")
 call <sid>hi("Search",        s:base8, s:base4, s:cterm03, s:cterm0A,  "", "")
-call <sid>hi("SignColumn",    s:base4, s:base2, s:cterm03, s:cterm01, "", "")
+call <sid>hi("SignColumn",    s:base4, s:base1, s:cterm03, s:cterm01, "", "")
 call <sid>hi("SpecialKey",    s:base4, "", s:cterm03, "", "", "")
 call <sid>hi("StatusLine",    s:base5, s:base3, s:cterm04, s:cterm02, "none", "")
 call <sid>hi("StatusLineNC",  s:base4, s:base2, s:cterm03, s:cterm01, "none", "")
@@ -169,7 +169,7 @@ call <sid>hi("StorageClass", s:yellow, "", s:cterm0A, "", "", "")
 call <sid>hi("String",       s:green, "", s:cterm0B, "", "", "")
 call <sid>hi("Structure",    s:violet, "", s:cterm0E, "", "", "")
 call <sid>hi("Tag",          s:yellow, "", s:cterm0A, "", "", "")
-call <sid>hi("Todo",         s:yellow, s:base2, s:cterm0A, s:cterm01, "", "")
+call <sid>hi("Todo",         s:yellow, s:base, s:cterm0A, s:cterm01, "", "")
 call <sid>hi("Type",         s:base6, "", s:cterm0A, "", "none", "")
 call <sid>hi("Typedef",      s:yellow, "", s:cterm0A, "", "", "")
 
@@ -220,10 +220,10 @@ call <sid>hi("gitcommitDiscardedFile",  s:red, "", s:cterm08, "", "bold", "")
 call <sid>hi("gitcommitSelectedFile",   s:green, "", s:cterm0B, "", "bold", "")
 
 " GitGutter highlighting
-call <sid>hi("GitGutterAdd",     s:green, s:base2, s:cterm0B, s:cterm01, "", "")
-call <sid>hi("GitGutterChange",  s:blue, s:base2, s:cterm0D, s:cterm01, "", "")
-call <sid>hi("GitGutterDelete",  s:red, s:base2, s:cterm08, s:cterm01, "", "")
-call <sid>hi("GitGutterChangeDelete",  s:violet, s:base2, s:cterm0E, s:cterm01, "", "")
+call <sid>hi("GitGutterAdd",     s:green, s:base1, s:cterm0B, s:cterm01, "", "")
+call <sid>hi("GitGutterChange",  s:violet, s:base1, s:cterm0D, s:cterm01, "", "")
+call <sid>hi("GitGutterDelete",  s:red, s:base1, s:cterm08, s:cterm01, "", "")
+call <sid>hi("GitGutterChangeDelete",  s:orange, s:base1, s:cterm0E, s:cterm01, "", "")
 
 " HTML highlighting
 call <sid>hi("htmlBold",    s:yellow, "", s:cterm0A, "", "", "")
@@ -249,6 +249,7 @@ call <sid>hi("jsGlobalObjects",      s:blue, "", s:cterm0A, "", "", "")
 call <sid>hi("jsGlobalNodeObjects",  s:blue, "", s:cterm0A, "", "", "")
 call <sid>hi("jsBuiltins",           s:violet, "", s:cterm0A, "", "", "")
 call <sid>hi("jsImport",             s:orange, "", s:cterm0A, "", "", "")
+call <sid>hi("jsExport",             s:orange, "", s:cterm0A, "", "", "")
 call <sid>hi("jsRegexpString",       s:base6, "", s:cterm0C, "", "", "")
 call <sid>hi("jsClassKeyword",       s:yellow, "", s:cterm0C, "", "bold", "")
 call <sid>hi("jsExtendsKeyword",     s:yellow, "", s:cterm0C, "", "bold", "")
@@ -258,7 +259,7 @@ call <sid>hi("jsNoise",              s:base4, "", s:cterm0C, "", "", "")
 call <sid>hi("jsTemplateExpression", s:base6, "", s:cterm0C, "", "", "")
 
 " Handlebars highlighting
-call <sid>hi("hbsHandles",        s:base3, "", s:cterm0A, "", "", "")
+call <sid>hi("hbsHandles",        s:magenta, "", s:cterm0A, "", "", "")
 call <sid>hi("hbsIdentifier",     s:base7, "", s:cterm0A, "", "", "")
 call <sid>hi("hbsString",         s:green, "", s:cterm0A, "", "", "")
 call <sid>hi("hbsMustacheName",   s:cyan, "", s:cterm0A, "", "", "")

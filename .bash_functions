@@ -92,25 +92,3 @@ __vcs_name() {
         echo "- [hg $(hg branch)]"
     fi
 }
-
-# Run ember tests and write output to a log file in case we want to inspect test failures
-ember_test() {
-  just ember test --path="dist/" "$@" | tee /var/log/ember/tests/$(git rev-parse --abbrev-ref HEAD).log
-}
-
-# Output a particular line from a file with 50 lines context before and after
-# Exp: show_context my_file.txt 101
-show_context() {
-  FILENAME=$2
-  TARGET_LINE_NUMBER=$1
-  CONTEXT_SIZE=50
-
-  if [[ ! -z "$3" ]]; then
-    CONTEXT_SIZE="$3"
-  fi
-
-  BEFORE_CONTEXT=$(expr $1 - $CONTEXT_SIZE)
-  AFTER_CONTEXT=$(expr $1 + $CONTEXT_SIZE)
-
-  awk NR==$BEFORE_CONTEXT,NR==$AFTER_CONTEXT "$FILENAME"
-}

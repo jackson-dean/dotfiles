@@ -1,4 +1,31 @@
 # Emberjs snippets
+
+global !p
+def relative_path_to_tests_root(path):
+	return '../'*len(path.split('tests')[1].strip(fn + '.js').strip('/').split('/'))
+endglobal
+
+global !p
+def camelize(tabstop):
+	return tabstop[:1].lower() + tabstop.title().replace('-', '')[1:]
+endglobal
+
+global !p
+def generate_class_name(path, entity_type):
+	part = path.split(entity_type + 's')[1]
+	filename = part.split('/').pop()
+	return ''.join(part.strip(filename).split('/')).title().replace('-', '') + filename.strip('.js').title() + entity_type.title()
+endglobal
+
+global !p
+def relative_path_to_tests_root(path):
+	return '../'*len(path.split('tests')[1].strip(fn + '.js').strip('/').split('/'))
+endglobal
+
+snippet eobj
+Ember.Object.create($1);
+endsnippet
+
 snippet init
 init() {
 	this._super(...arguments);
@@ -13,7 +40,7 @@ snippet route
 import Ember from 'ember';
 
 /**
- * @class `!p snip.rv = snip.basename.title().replace('-', '')`Route
+ * @class `!p snip.rv = generate_class_name(path, 'route')`
  */
 export default Ember.Route.extend({
 	${1}
@@ -27,10 +54,17 @@ actions: {
 endsnippet
 
 snippet model
-model() {
+model(params, transition) {
 	${1}
 },
 endsnippet
+
+snippet prefetch
+prefetch(params, transition) {
+	${1}
+},
+endsnippet
+
 
 snippet component
 /**
@@ -39,7 +73,7 @@ snippet component
 import Ember from 'ember';
 
 /**
- * @class `!p snip.rv = snip.basename.title().replace('-', '')`Component
+ * @class `!p snip.rv = generate_class_name(path, 'component')`
  */
 export default Ember.Component.extend({
 	classNames: ['org-`!p snip.rv = snip.basename`']
@@ -54,23 +88,22 @@ snippet mixin
 import Ember from 'ember';
 
 /**
- * @class `!p snip.rv = snip.basename.title().replace('-', '')`Mixin
+ * @class `!p snip.rv = generate_class_name(path, 'mixin')`
  */
 export default Ember.Mixin.extend({
 	${1}
 });
 endsnippet
 
-snippet iemb
+snippet iember
 import Ember from 'ember';
 endsnippet
 
-# Ember Qunit
+snippet inject
+`!p snip.rv = camelize(t[1])`: Ember.inject.service('$1')
+endsnippet
 
-global !p
-def relative_path_to_tests_root(path):
-	return '../'*len(path.split('tests')[1].strip(fn + '.js').strip('/').split('/'))
-endglobal
+# Ember Qunit
 
 snippet relpath
 import $1 from '`!p snip.rv = relative_path_to_tests_root(path)`$2';
@@ -84,13 +117,13 @@ test('$1', function(assert) {
 });
 endsnippet
 
-snippet beforeEach
+snippet beforee
 beforeEach() {
   $1
 },
 endsnippet
 
-snippet afterEach
+snippet aftere
 afterEach() {
   $1
 },
@@ -100,6 +133,14 @@ snippet andThen
 andThen(() => {
   $1
 });
+endsnippet
+
+snippet sandboxc
+this.sandbox = sinon.sandbox.create();
+endsnippet
+
+snippet sandboxr
+this.sandbox.restore();
 endsnippet
 
 snippet imockserver
@@ -155,7 +196,19 @@ import endpointMap from '`!p snip.rv = relative_path_to_tests_root(path)`helpers
 
 moduleForAcceptance('$1', {
   beforeEach() {
+		this.sandbox.create();
     mockServer.setup();
   },
+	afterEach() {
+		this.sandbox.restore();
+	},
 });
+endsnippet
+
+snippet expect
+assert.expect($1);
+endsnippet
+
+snippet equal
+assert.equal($1, $2, '$3');
 endsnippet

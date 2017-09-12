@@ -112,7 +112,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 
 set termguicolors
-colorscheme solarized-custom
+colorscheme solarized-high-contrast
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -140,7 +140,7 @@ nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
-nnoremap ra :Ack!<Space><C-R>"
+nnoremap <Leader>ra :Ack!<Space>'<C-R>"'
 nnoremap <Leader>aq :Ack!<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -175,7 +175,6 @@ let NERDTreeIgnore=[
       \'^vendor$',
       \'^docs$',
       \'^out$',
-      \'^public$',
       \'^concat-stats-for$']
 
 " scrooloose/nerdcommenter

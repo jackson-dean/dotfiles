@@ -7,17 +7,6 @@ for f in `git ls-files | grep -E '^\.'`; do
   ln -sfv "$PWD/$f" "$HOME/$f"
 done
 
-# Create a cron that runs every hour to auto commit and push any changes
-read -p "Create hourly cron job to autocommit changes to dotfiles? [y/n] " input
-if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
-  tmpfile="$HOME/crontab.tmp"
-  echo 'MAILTO="jckson.dean@gmail.com"' >> $tmpfile
-  crontab -l >> $tmpfile
-  echo '0 * * * * ~/dotfiles/auto_commit.sh > /dev/null' >> $tmpfile
-  crontab $tmpfile
-  rm -f $tmpfile
-fi
-
 # Setup vim
 read -p "Install vim Vundle packages? [y/n] " input
 if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
@@ -39,3 +28,7 @@ if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
   cd ~ && git clone https://github.com/ryanoasis/nerd-fonts && \
   cd nerd-fonts && ./install.sh
 fi
+
+# symlink Ultisnips and colors
+ln -sfv "$PWD/UltiSnips" "$HOME/.vim/UltiSnips"
+ln -sfv "$PWD/vim-colors" "$HOME/.vim/colors"

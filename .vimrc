@@ -13,6 +13,7 @@ Plugin 'Yggdroot/indentLine' " Indent guide lines
 Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
 Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy filename matcher
+Plugin 'easymotion/vim-easymotion' " Make moving even easier
 Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
 Plugin 'ervandew/supertab' " Tab autocompletion
 Plugin 'gmarik/Vundle.vim' " Package manager
@@ -37,6 +38,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
 Plugin 'tomtom/tlib_vim' " Snipmate dependency
 Plugin 'tpope/vim-fugitive' " Git integration for vim
 Plugin 'tpope/vim-surround' " Plugin for working with quotes/braces/brackets etc
+Plugin 'tyok/nerdtree-ack' " Search in folder
 Plugin 'vim-airline/vim-airline' " Fancy statusbar
 Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
@@ -120,8 +122,9 @@ autocmd BufWritePre * %s/\s\+$//e
 " Personal key remapping
 let mapleader=","
 map <C-p> :CtrlP<CR>
-map <C-f> /
 map <C-n><C-t> :NERDTreeToggle<CR>
+map <Leader>p "0p
+map <Leader>d :JsDoc<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
 nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
@@ -130,17 +133,14 @@ nnoremap <silent> <Leader><CR> o<Esc>
 nnoremap <silent> <Leader>w :w!<CR>
 nnoremap <silent> <Leader>wq :wq!<CR>
 nnoremap <silenT> <Leader>wa :wa!<CR>
-nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <silent> <S-Tab> :bprev<CR>
 nnoremap <silent> <Leader>c :noh<CR>
 inoremap jj <Esc>
-" inoremap <C-S-p> <C-R>"
 vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
-nnoremap <Leader>ra :Ack!<Space>'<C-R>"'
+nnoremap <Leader>ra :Ack!<Space>'<C-R>"' core extended
 nnoremap <Leader>aq :Ack!<Space>-Q<Space>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -218,6 +218,13 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " mhinz/vim-startify
 let g:startify_custom_header = []
+let g:startify_list_order = [
+  \ ['Sessions'], 'sessions',
+  \ ['Recently Modified in Current Directory'], 'dir',
+  \ ['Recently Modified Globally'], 'files',
+  \ ['Bookmarks'], 'bookmarks',
+  \ ['Commands'], 'commands',
+\]
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 let g:startify_change_to_vcs_root = 1
@@ -240,8 +247,10 @@ let g:vim_json_syntax_conceal = 0
 let g:javascript_plugin_jsdoc = 0
 
 " heavenshell/vim-jsdoc
-let g:jsdoc_enable_es6 = 1
 let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_underscore_private = 1
 
 " Yggdroot/indentLine
 let g:indentLine_char = '┊'
@@ -269,4 +278,6 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  er
 
 " SirVer/ultisips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips" " personal snippets directory
-let g:UltiSnipsSnippetDirectories   = ["UltiSnips"]
+let g:ultisnipssnippetdirectories   = ["ultisnips"]
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

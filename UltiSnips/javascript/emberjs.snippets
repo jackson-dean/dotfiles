@@ -103,6 +103,17 @@ snippet inject
 `!p snip.rv = camelize(t[1])`: Ember.inject.service('$1')
 endsnippet
 
+snippet didreceive
+didReceiveAttrs() {
+	this._super(...arguments);
+	$1
+},
+endsnippet
+
+snippet super
+this._super(...arguments);
+endsnippet
+
 # Ember Qunit
 
 snippet relpath

@@ -119,6 +119,9 @@ colorscheme base16-tomorrow-night
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" source vimrc after writing to it
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
 " Modify gf to work with core/extended ember project
 set path+=extended/engines
 set path+=core/engines
@@ -242,6 +245,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+" Refresh vim-airline after sourcing vimrc
 if exists('g:loaded_airline')
   AirlineRefresh
 endif
@@ -311,6 +315,6 @@ endif
 
 " SirVer/ultisips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips" " personal snippets directory
-let g:ultisnipssnippetdirectories   = ["ultisnips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

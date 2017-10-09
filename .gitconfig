@@ -12,3 +12,6 @@
 	l = log
 	b = branch
   sb = switchbranch
+  wip = !git add -A && git commit -m 'WIP' -n
+[color]
+	ui = true

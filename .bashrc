@@ -41,3 +41,5 @@ export PS1='\[$pink\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black
 export PATH=$PATH:$HOME/LinkedIn/bin:$GOPATH/bin
 export EDITOR=vim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'
+
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g

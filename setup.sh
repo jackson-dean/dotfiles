@@ -26,9 +26,9 @@ fi
 read -p "Install patched fonts for terminal icons? [y/n] " input
 if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
   cd ~ && git clone https://github.com/ryanoasis/nerd-fonts && \
-  cd nerd-fonts && ./install.sh
+  cd nerd-fonts && ./install.sh && cd $HOME/dotfiles
 fi
 
 # symlink Ultisnips and colors
-ln -sfv "$PWD/UltiSnips" "$HOME/.vim/UltiSnips"
-ln -sfv "$PWD/vim-colors" "$HOME/.vim/colors"
+ln -sfv "$HOME/dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
+ln -sfv "$HOME/dotfiles/vim-colors" "$HOME/.vim/colors"

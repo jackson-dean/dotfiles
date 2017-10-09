@@ -114,10 +114,31 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 
 set termguicolors
-colorscheme solarized-high-contrast
+colorscheme base16-tomorrow-night
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" Modify gf to work with core/extended ember project
+set path+=extended/engines
+set path+=core/engines
+set path+=extended/lib
+set path+=core/lib
+set path+=core/lib/shared
+set path+=extended/lib/shared-ext
+set path+=lib
+
+" If file under cursor starts with a relative path, just return the path.
+" Otherwise insert `addon` into the filename to match ember directory structure
+function! IncludeExpr()
+  if v:fname =~ '^\.'
+    return v:fname
+  elseif v:fname =~ '/templates/'
+    return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','').'.hbs'
+  endif
+  return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','')
+endfunction
+set includeexpr=IncludeExpr()
 
 " Personal key remapping
 let mapleader=","
@@ -134,6 +155,7 @@ nnoremap <silent> <Leader>w :w!<CR>
 nnoremap <silent> <Leader>wq :wq!<CR>
 nnoremap <silenT> <Leader>wa :wa!<CR>
 nnoremap <silent> <Leader>c :noh<CR>
+nnoremap gf :vertical wincmd f<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
@@ -149,6 +171,11 @@ nnoremap <c-l> <c-w>l
 nnoremap <Leader>nf :NERDTreeFind<CR>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
+
+" Personal commands
+command! DiffOn execute 'windo diffthis'
+command! DiffOff execute "diffoff!"
+command! Vrc execute "vsplit ".$MYVIMRC
 
 " vmustache/vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1
@@ -208,13 +235,16 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='solarized'
+let g:airline_theme='base16_tomorrow'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+if exists('g:loaded_airline')
+  AirlineRefresh
+endif
 
 " mhinz/vim-startify
 let g:startify_custom_header = []
@@ -275,6 +305,9 @@ let g:NERDTreeExtensionHighlightColor['js'] = s:yellow " make js a brighter yell
 let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreeExtensionHighlightColor['json'] = s:green " make json green
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  error
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 " SirVer/ultisips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips" " personal snippets directory

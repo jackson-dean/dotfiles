@@ -27,10 +27,14 @@ Ember.Object.create($1);
 endsnippet
 
 snippet init
+/**
+ * @override
+ */
 init() {
 	this._super(...arguments);
 	${1}
 },
+
 endsnippet
 
 snippet route
@@ -54,15 +58,23 @@ actions: {
 endsnippet
 
 snippet model
+/**
+ * @override
+ */
 model(params, transition) {
 	${1}
 },
+
 endsnippet
 
 snippet prefetch
+/**
+ * @override
+ */
 prefetch(params, transition) {
 	${1}
 },
+
 endsnippet
 
 

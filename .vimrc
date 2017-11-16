@@ -42,6 +42,8 @@ Plugin 'tyok/nerdtree-ack' " Search in folder
 Plugin 'vim-airline/vim-airline' " Fancy statusbar
 Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
+Plugin 'tacahiroy/ctrlp-funky' " List functions in current file without ctags
+Plugin 'prettier/vim-prettier' " Formate javasript
 
 " colorschemes
 Plugin 'altercation/vim-colors-solarized'
@@ -64,7 +66,6 @@ set number " Turn on line numbers
 set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
 set nowrap " Disable line auto wrapping
-set mouse=a " Turn on the mouse ;)
 set fillchars+=vert:\┋ " Solid pipe character for window split icon
 set cursorline " highlight current line
 set cmdheight=2 " Increase command line height
@@ -102,6 +103,9 @@ let &tabstop=g:indentation_depth " Set tab character width
 let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
 let &backspace=g:indentation_depth " Make backspace work like a sane person would expect
 
+set foldmethod=indent
+set foldlevelstart=99
+
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
 set wildignore+=*/node_modules/*,*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ignore for filename completion suggestions
 
@@ -114,7 +118,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 
 set termguicolors
-colorscheme base16-tomorrow-night
+" colorscheme base16-tomorrow-night
+colorscheme solarized-high-contrast
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -148,7 +153,11 @@ let mapleader=","
 map <C-p> :CtrlP<CR>
 map <C-n><C-t> :NERDTreeToggle<CR>
 map <Leader>p "0p
+map <Leader>ft :Prettier<CR>
 map <Leader>d :JsDoc<CR>
+map <Leader>fu :CtrlPFunky<CR>
+map <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+map <S-Tab> :bnext<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
 nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
@@ -161,7 +170,7 @@ nnoremap <silent> <Leader>c :noh<CR>
 nnoremap gf :vertical wincmd f<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
-nnoremap <silent> <Leader>gs :Gstatus<CR><C-w>t<C-w>H
+nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
@@ -179,6 +188,7 @@ vnoremap < <<CR>gv
 command! DiffOn execute 'windo diffthis'
 command! DiffOff execute "diffoff!"
 command! Vrc execute "vsplit ".$MYVIMRC
+command! Gdmaster execute "Gvsplit master:%"
 
 " vmustache/vim-mustache-handlebars settings
 let g:mustache_abbreviations = 1

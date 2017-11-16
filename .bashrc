@@ -43,3 +43,6 @@ export EDITOR=vim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
+
+# use vim navigation in the terminal
+set -o vi

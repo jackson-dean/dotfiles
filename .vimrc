@@ -74,7 +74,7 @@ set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
 set pastetoggle=<F2> " Quick paste toggle
-set colorcolumn=100 " Vertical rule at 100 columns
+set colorcolumn=80 " Vertical rule at 100 columns
 " 2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 
 " Swap/Backup file settings
@@ -126,6 +126,10 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " source vimrc after writing to it
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" Run prettier on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
 
 " Modify gf to work with core/extended ember project
 set path+=extended/engines

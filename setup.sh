@@ -10,8 +10,8 @@ done
 # Setup vim
 read -p "Install vim Vundle packages? [y/n] " input
 if [[ $input == 'y' ]] || [[ $input == 'Y' ]]; then
-  mkdir ~/.backup
-  mkdir ~/.swap
+  mkdir $HOME/.backup
+  mkdir $HOME/.swap
   bundleDir="$HOME/.vim/bundle"
   if [[ ! -d "$bundleDir" ]]; then
     mkdir -p "$bundleDir"

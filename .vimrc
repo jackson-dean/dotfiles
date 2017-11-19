@@ -80,8 +80,8 @@ set colorcolumn=80 " Vertical rule at 100 columns
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
 set nobackup " no more weirdo backup files
-set backupdir=~/.backup " Where backups would go if we had them
-set dir=~/.swap " Where swap files would go if we had them
+set backupdir=$HOME/.backup " Where backups would go if we had them
+set dir=$HOME/.swap " Where swap files would go if we had them
 
 " Split/window behavior
 set splitright " Open vertical splits/windows to the right by default

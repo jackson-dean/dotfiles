@@ -133,6 +133,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 " Modify gf to work with core/extended ember project
 set path+=extended/engines
+set path+=engine-lib
 set path+=core/engines
 set path+=extended/lib
 set path+=core/lib
@@ -147,6 +148,8 @@ function! IncludeExpr()
     return v:fname
   elseif v:fname =~ '/templates/'
     return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','').'.hbs'
+  elseif v:fname =~ '::'
+    return substitute(v:fname,'::','/addon/templates/components/','').'.hbs'
   endif
   return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','')
 endfunction

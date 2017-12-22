@@ -13,5 +13,6 @@
 	b = branch
   sb = switchbranch
   wip = !git add -A && git commit -m 'WIP' -n
+  ld = log --graph --oneline --all --decorate
 [color]
 	ui = true

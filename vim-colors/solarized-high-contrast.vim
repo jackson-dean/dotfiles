@@ -141,7 +141,7 @@ call <sid>hi("Underlined",    s:red, "", s:cterm08, "", "", "")
 call <sid>hi("VertSplit",     s:base6, s:base4, s:cterm02, s:cterm02, "none", "")
 call <sid>hi("Visual",        "", s:base2, "", s:cterm02, "", "")
 call <sid>hi("VisualNOS",     s:red, "", s:cterm08, "", "", "")
-call <sid>hi("WarningMsg",    s:red, "", s:cterm08, "", "", "")
+call <sid>hi("WarningMsg",    s:yellow, "", s:cterm08, "", "", "")
 call <sid>hi("WildMenu",      s:base3, s:base8, s:cterm08, "", "", "")
 
 " Standard syntax highlighting
@@ -172,19 +172,11 @@ call <sid>hi("Tag",          s:yellow, "", s:cterm0A, "", "", "")
 call <sid>hi("Todo",         s:red, s:base, s:cterm0A, s:cterm01, "", "")
 call <sid>hi("Type",         s:base6, "", s:cterm0A, "", "none", "")
 call <sid>hi("Typedef",      s:yellow, "", s:cterm0A, "", "", "")
+call <sid>hi("Note",      s:yellow, "", s:cterm0A, "", "", "")
 
 " C highlighting
 call <sid>hi("cOperator",   s:cyan, "", s:cterm0C, "", "", "")
 call <sid>hi("cPreCondit",  s:violet, "", s:cterm0E, "", "", "")
-
-" C# highlighting
-call <sid>hi("csClass",                 s:yellow, "", s:cterm0A, "", "", "")
-call <sid>hi("csAttribute",             s:yellow, "", s:cterm0A, "", "", "")
-call <sid>hi("csModifier",              s:violet, "", s:cterm0E, "", "", "")
-call <sid>hi("csType",                  s:red, "", s:cterm08, "", "", "")
-call <sid>hi("csUnspecifiedStatement",  s:blue, "", s:cterm0D, "", "", "")
-call <sid>hi("csContextualStatement",   s:violet, "", s:cterm0E, "", "", "")
-call <sid>hi("csNewDecleration",        s:red, "", s:cterm08, "", "", "")
 
 " CSS highlighting
 call <sid>hi("cssBraces",      s:base6, "", s:cterm05, "", "", "")
@@ -332,6 +324,9 @@ call <sid>hi("SpellBad",     "", s:base, "", s:cterm00, "undercurl", s:red)
 call <sid>hi("SpellLocal",   "", s:base, "", s:cterm00, "undercurl", s:cyan)
 call <sid>hi("SpellCap",     "", s:base, "", s:cterm00, "undercurl", s:blue)
 call <sid>hi("SpellRare",    "", s:base, "", s:cterm00, "undercurl", s:violet)
+
+" Syntastic warning
+call <sid>hi("SyntasticWarningSign",    s:yellow, "", s:cterm00, "", "", "")
 
 " Remove functions
 delf <sid>hi

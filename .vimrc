@@ -55,6 +55,9 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'rafi/awesome-vim-colorschemes'
 
+" For work
+Plugin 'git://gitli.corp.linkedin.com/jcdean/vim-pemberly.git'
+
 call vundle#end()
 " End: Vundle Package Manager Settings
 
@@ -75,7 +78,6 @@ set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
 set pastetoggle=<F2> " Quick paste toggle
 set colorcolumn=80 " Vertical rule at 100 columns
-" 2mat ErrorMsg '\%121v.' " Highlight first character in text spanning more than 120 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -107,7 +109,7 @@ set foldmethod=indent
 set foldlevelstart=99
 
 set wildmenu " Show completion options (filenames, plugin functions, etc) in a traversable menu
-set wildignore+=*/node_modules/*,*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ignore for filename completion suggestions
+set wildignore+=*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ignore for filename completion suggestions
 
 " Make cursor skinny on insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -118,8 +120,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 
 set termguicolors
-" colorscheme base16-tomorrow-night
-colorscheme solarized-high-contrast
+" colorscheme solarized-high-contrast
+colorscheme base16-onedark
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -127,44 +129,16 @@ autocmd BufWritePre * %s/\s\+$//e
 " source vimrc after writing to it
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-" Run prettier on save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
-
-" Modify gf to work with core/extended ember project
-set path+=extended/engines
-set path+=engine-lib
-set path+=core/engines
-set path+=extended/lib
-set path+=core/lib
-set path+=core/lib/shared
-set path+=extended/lib/shared-ext
-set path+=lib
-
-" If file under cursor starts with a relative path, just return the path.
-" Otherwise insert `addon` into the filename to match ember directory structure
-function! IncludeExpr()
-  if v:fname =~ '^\.'
-    return v:fname
-  elseif v:fname =~ '/templates/'
-    return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','').'.hbs'
-  elseif v:fname =~ '::'
-    return substitute(v:fname,'::','/addon/templates/components/','').'.hbs'
-  endif
-  return substitute(substitute(v:fname,'/','/addon/',''),'^shared','s-base','')
-endfunction
-set includeexpr=IncludeExpr()
-
 " Personal key remapping
 let mapleader=","
 map <C-p> :CtrlP<CR>
 map <C-n><C-t> :NERDTreeToggle<CR>
 map <Leader>p "0p
 map <Leader>ft :Prettier<CR>
-map <Leader>d :JsDoc<CR>
 map <Leader>fu :CtrlPFunky<CR>
-map <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+map <Leader>rf :call GoToRelatedFile()<CR>
 map <S-Tab> :bnext<CR>
+map gf :vertical wincmd f<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
 nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
@@ -174,15 +148,13 @@ nnoremap <silent> <Leader>w :w!<CR>
 nnoremap <silent> <Leader>wq :wq!<CR>
 nnoremap <silenT> <Leader>wa :wa!<CR>
 nnoremap <silent> <Leader>c :noh<CR>
-nnoremap gf :vertical wincmd f<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
-nnoremap <Leader>ra :Ack!<Space>'<C-R>"' core extended
-nnoremap <Leader>aq :Ack!<Space>-Q<Space>
+nnoremap <Leader>ra :Ack!<Space>'<C-R>"' core extended lib engine-lib --ignore='*test.js'
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -227,11 +199,6 @@ let NERDTreeIgnore=[
 " scrooloose/nerdcommenter
 let NERDSpaceDelims=1
 
-" scrooloose/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " scrooloose/syntastic settings
 let SignColumnBGC = synIDattr(hlID("SignColumn"), "bg")
 exe 'highlight SyntasticErrorSign guifg=red guibg='.SignColumnBGC
@@ -248,6 +215,7 @@ let g:syntastic_style_warning_symbol = '⚠'
 
 " ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " Respect .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
@@ -255,7 +223,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='base16_tomorrow'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

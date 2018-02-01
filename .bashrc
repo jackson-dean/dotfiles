@@ -41,6 +41,10 @@ export PS1='\[$pink\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black
 export PATH=$PATH:$HOME/LinkedIn/bin:$GOPATH/bin
 export EDITOR=vim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
 

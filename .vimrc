@@ -12,7 +12,6 @@ Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
 Plugin 'Yggdroot/indentLine' " Indent guide lines
 Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
 Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
-Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy filename matcher
 Plugin 'easymotion/vim-easymotion' " Make moving even easier
 Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
 Plugin 'ervandew/supertab' " Tab autocompletion
@@ -41,7 +40,6 @@ Plugin 'tyok/nerdtree-ack' " Search in folder
 Plugin 'vim-airline/vim-airline' " Fancy statusbar
 Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
-Plugin 'tacahiroy/ctrlp-funky' " List functions in current file without ctags
 Plugin 'prettier/vim-prettier' " Formate javasript
 Plugin 'junegunn/fzf'
 
@@ -132,11 +130,10 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Personal key remapping
 let mapleader=","
-map <C-p> :CtrlP<CR>
+map <C-p> :FZF<CR>
 map <C-n><C-t> :NERDTreeToggle<CR>
 map <Leader>p "0p
 map <Leader>ft :Prettier<CR>
-map <Leader>fu :CtrlPFunky<CR>
 map <Leader>rf :PemberlyRelatedFile<CR>
 map <S-Tab> :bnext<CR>
 map gf :vertical wincmd f<CR>

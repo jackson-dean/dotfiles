@@ -43,6 +43,7 @@ Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
 Plugin 'tacahiroy/ctrlp-funky' " List functions in current file without ctags
 Plugin 'prettier/vim-prettier' " Formate javasript
+Plugin 'junegunn/fzf'
 
 " colorschemes
 Plugin 'altercation/vim-colors-solarized'

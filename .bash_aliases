@@ -11,6 +11,8 @@ alias vimrc="vim $HOME/.vimrc"
 alias tmxa="tmux a -t"
 alias cl="clear"
 alias matlab="/Applications/MATLAB_R2017a.app/bin/matlab -nodesktop"
+alias vim="nvim"
+alias vi="nvim"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 

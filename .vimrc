@@ -33,7 +33,6 @@ Plugin 'ryanoasis/vim-devicons' " Filetype icon support
 Plugin 'scrooloose/nerdcommenter' " Quickly toggle comment blocks
 Plugin 'scrooloose/nerdtree' " File explorer
 Plugin 'scrooloose/syntastic' " Linter
-Plugin 'ternjs/tern_for_vim' " Javascript inference engine - dependency for tagbar
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
 Plugin 'tomtom/tlib_vim' " Snipmate dependency
 Plugin 'tpope/vim-fugitive' " Git integration for vim
@@ -118,6 +117,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Force .src files to use xml syntax
 au BufNewFile,BufRead *.src setlocal ft=xml
+au BufNewFile,BufRead *.pdsc setlocal ft=json
 
 set termguicolors
 " colorscheme solarized-high-contrast
@@ -136,7 +136,7 @@ map <C-n><C-t> :NERDTreeToggle<CR>
 map <Leader>p "0p
 map <Leader>ft :Prettier<CR>
 map <Leader>fu :CtrlPFunky<CR>
-map <Leader>rf :call GoToRelatedFile()<CR>
+map <Leader>rf :PemberlyRelatedFile<CR>
 map <S-Tab> :bnext<CR>
 map gf :vertical wincmd f<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
@@ -223,7 +223,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-let g:airline_theme='one'
+let g:airline_theme='base16'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_left_sep = ''

@@ -142,9 +142,6 @@ nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
 nnoremap <silent> <S-down> :resize -10<CR>
 nnoremap <silent> <Leader><CR> o<Esc>
-nnoremap <silent> <Leader>w :w!<CR>
-nnoremap <silent> <Leader>wq :wq!<CR>
-nnoremap <silenT> <Leader>wa :wa!<CR>
 nnoremap <silent> <Leader>c :noh<CR>
 inoremap jj <Esc>
 vnoremap // y/<C-R>"<CR>"
@@ -160,6 +157,30 @@ nnoremap <c-l> <c-w>l
 nnoremap <Leader>nf :NERDTreeFind<CR>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
+
+" neovim terminal settings
+" there can be an only be one!
+function! ToggleTerminal()
+  let l:termBuffers = filter(map(copy(getbufinfo()), 'v:val.name'), 'v:val =~ "term://"')
+  if (len(l:termBuffers))
+    " getbufinfo returns an array
+    let l:bufferDictionary = getbufinfo(l:termBuffers[0])[0]
+    if (l:bufferDictionary['hidden'])
+      exec 'sb '.l:termBuffers[0]
+    else
+      normal! ^\
+      echo 'im open already!'
+    endif
+    startinsert
+  else
+    split | terminal
+    startinsert
+  endif
+endfunction
+command! Term execute 'call ToggleTerminal()'
+tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
+nnoremap <silent> <Leader>t :Term<CR>
+
 
 " Personal commands
 command! DiffOn execute 'windo diffthis'

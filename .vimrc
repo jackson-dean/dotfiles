@@ -160,24 +160,20 @@ vnoremap < <<CR>gv
 
 " neovim terminal settings
 " there can be an only be one!
-function! ToggleTerminal()
+function! OpenTerminal()
   let l:termBuffers = filter(map(copy(getbufinfo()), 'v:val.name'), 'v:val =~ "term://"')
   if (len(l:termBuffers))
-    " getbufinfo returns an array
-    let l:bufferDictionary = getbufinfo(l:termBuffers[0])[0]
+    let l:termBuffer = l:termBuffers[0]
+    let l:bufferDictionary = getbufinfo(l:termBuffer)[0]
     if (l:bufferDictionary['hidden'])
       exec 'sb '.l:termBuffers[0]
-    else
-      normal! ^\
-      echo 'im open already!'
     endif
-    startinsert
   else
     split | terminal
-    startinsert
   endif
+  startinsert
 endfunction
-command! Term execute 'call ToggleTerminal()'
+command! Term execute 'call OpenTerminal()'
 tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
 nnoremap <silent> <Leader>t :Term<CR>
 

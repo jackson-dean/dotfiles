@@ -5,45 +5,66 @@ filetype off " required for Vundle (I don't know why)
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Utility Packages
-Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
+Plugin 'gmarik/Vundle.vim' " Package manager
+
+" HTML Packages
+Plugin 'othree/html5.vim' " HTML5 syntax enhancements
+
+" JavaScript Packages
+Plugin 'prettier/vim-prettier' " Formate javasript
+Plugin 'pangloss/vim-javascript' " Better es6/es2015 syntax support
+Plugin 'ternjs/tern_for_vim' " static analysis for js
+Plugin 'carlitux/deoplete-ternjs'
+
+" Ember Packages
+Plugin 'joukevandermaas/vim-ember-hbs'
+
+" React Packages
+Plugin 'mxw/vim-jsx' " React/jsx support
+
+" Git packages
+Plugin 'tpope/vim-fugitive' " Git integration for vim
+Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
+
+" JSON Packages
+Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
+
+" File Explorer Packages
+Plugin 'ryanoasis/vim-devicons' " Filetype icon support
+Plugin 'scrooloose/nerdtree' " File explorer
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
+Plugin 'tyok/nerdtree-ack' " Search in folder
+
+" SCSS Packages
+Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
+
+" Snippets Packages
 Plugin 'SirVer/ultisnips' " Snippet manager
+Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
+Plugin 'tomtom/tlib_vim' " Snipmate dependency
+
+" Autocompletion Packages
+Plugin 'ervandew/supertab' " Tab autocompletion
+
+" General Utilities
 Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
 Plugin 'Yggdroot/indentLine' " Indent guide lines
-Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
-Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
 Plugin 'easymotion/vim-easymotion' " Make moving even easier
-Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
-Plugin 'ervandew/supertab' " Tab autocompletion
-Plugin 'gmarik/Vundle.vim' " Package manager
-Plugin 'heavenshell/vim-jsdoc' " Easy doc blocks for js
-Plugin 'honza/vim-snippets' " Collection of snippets
 Plugin 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
-Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
 Plugin 'mhinz/vim-startify' " Fancy start screen showing recently edited files
 Plugin 'mileszs/ack.vim' " Vim ack/ag integration
-Plugin 'mxw/vim-jsx' " React/jsx support
 Plugin 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
-Plugin 'othree/html5.vim' " HTML5 syntax enhancements
-Plugin 'pangloss/vim-javascript' " Better es6/es2015 syntax support
 Plugin 'qpkorr/vim-bufkill' " Kill buffer without killing the split/window
-Plugin 'ryanoasis/vim-devicons' " Filetype icon support
 Plugin 'scrooloose/nerdcommenter' " Quickly toggle comment blocks
-Plugin 'scrooloose/nerdtree' " File explorer
 Plugin 'scrooloose/syntastic' " Linter
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
-Plugin 'tomtom/tlib_vim' " Snipmate dependency
-Plugin 'tpope/vim-fugitive' " Git integration for vim
 Plugin 'tpope/vim-surround' " Plugin for working with quotes/braces/brackets etc
-Plugin 'tyok/nerdtree-ack' " Search in folder
 Plugin 'vim-airline/vim-airline' " Fancy statusbar
 Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
-Plugin 'prettier/vim-prettier' " Formate javasript
-Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf' " fuzzy search engine
 
-" colorschemes
+" Colorscheme Packages
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'dikiaap/minimalist'
@@ -149,7 +170,7 @@ nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <Leader>a :Ack!<Space>
-nnoremap <Leader>ra :Ack!<Space>'<C-R>"' core extended lib engine-lib --ignore='*test.js'
+nnoremap <Leader>fr :FindRefs<CR>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -160,25 +181,35 @@ vnoremap < <<CR>gv
 
 " neovim terminal settings
 " there can be an only be one!
-function! OpenTerminal()
-  let l:termBuffers = filter(map(copy(getbufinfo()), 'v:val.name'), 'v:val =~ "term://"')
-  if (len(l:termBuffers))
-    let l:termBuffer = l:termBuffers[0]
-    let l:bufferDictionary = getbufinfo(l:termBuffer)[0]
-    if (l:bufferDictionary['hidden'])
-      exec 'sb '.l:termBuffers[0]
+if has('nvim')
+  function! OpenTerminal()
+    let l:termBuffers = filter(map(copy(getbufinfo()), 'v:val.name'), 'v:val =~ "term://"')
+    if (len(l:termBuffers))
+      let l:termBuffer = l:termBuffers[0]
+      let l:bufferDictionary = getbufinfo(l:termBuffer)[0]
+      if (l:bufferDictionary['hidden'])
+        exec 'sb '.l:termBuffers[0]
+      endif
+    else
+      split | terminal
     endif
-  else
-    split | terminal
-  endif
-  startinsert
-endfunction
-command! Term execute 'call OpenTerminal()'
-tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
-nnoremap <silent> <Leader>t :Term<CR>
+    startinsert
+  endfunction
+  command! Term execute 'call OpenTerminal()'
+  tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
+  nnoremap <silent> <Leader>t :Term<CR>
+endif
 
+" TODO: move to vim-pemberly plugin?
+function! FindReferences()
+  set isk+=/,-
+  let l:ref = expand('<cword>')
+  execute 'Ack! ' . l:ref . ' --handlebars --js --ignore="*test.js"'
+  set isk-=/,-
+endfunction
 
 " Personal commands
+command! FindRefs execute 'call FindReferences()'
 command! DiffOn execute 'windo diffthis'
 command! DiffOff execute "diffoff!"
 command! Vrc execute "vsplit ".$MYVIMRC

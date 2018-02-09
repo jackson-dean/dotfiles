@@ -9,9 +9,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Language Specific Packages
 " HTML
 Plug 'othree/html5.vim' " HTML5 syntax enhancements
-"Javascript
+" Javascript
 Plug 'prettier/vim-prettier' " Format javasript
 Plug 'pangloss/vim-javascript' " Better es6/es2015 syntax support
+" EmberJS
+Plug 'joukevandermaas/vim-ember-hbs'
 
 " File explorer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -91,7 +93,7 @@ Plug 'easymotion/vim-easymotion' " Make moving even easier
 Plug 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
 Plug 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
 Plug 'qpkorr/vim-bufkill' " Kill buffer without killing the split/window
-Plug 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
+Plug 'jackson-dean/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
 Plug 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
 Plug 'tpope/vim-commentary' " Kill buffer without killing the split/window
 Plug 'tpope/vim-surround' " Plugin for working with quotes/braces/brackets etc
@@ -119,13 +121,17 @@ Plug 'w0rp/ale'
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \}
-let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '⚈'
-let g:ale_sign_warning = '⚈'
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '✖'
+
+" Indent guides
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '┆'
 
 " Color themes
 Plug 'chriskempson/base16-vim'
+Plug 'trevordmiller/nova-vim'
 
 call plug#end()
 
@@ -146,7 +152,6 @@ set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw " Don't redraw while executing macros
 set signcolumn=yes " Always show the signcolumn
 set pastetoggle=<F2> " Quick paste toggle
-set colorcolumn=80 " Vertical rule at 100 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -207,7 +212,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
-map <silent><C-p> :FZF<CR>
+map <silent><C-p> :exe 'FZF '.$PWD<CR>
 map <silent><C-n><C-t> :NERDTreeToggle<CR>
 map <S-Tab> :bnext<CR>
 map gf :vertical wincmd f<CR>
@@ -263,7 +268,11 @@ command! DiffOff execute "diffoff!"
 command! Vrc execute "vsplit ".$MYVIMRC
 command! Gdmaster execute "Gvsplit master:%"
 command! EditInit execute "vsplit ~/.config/nvim/init.vim"
+command! -range SendSelectionToRemote execute "<line1>,<line2>w! ".$HOME."/yanked.txt | !scp ~/yanked.txt ".$VIM_REMOTE_USER."@".$VIM_REMOTE_HOST.":~/yanked.txt && ssh ".$VIM_REMOTE_USER."@".$VIM_REMOTE_HOST." 'pbcopy < ~/yanked.txt'"
+command! ResetWorkspace execute 'Startify | BufOnly'
 
 " Do custom highlighting at the end so it doesn't get inadvertantly cleared
-highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=NONE
+highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=#353b45
 highlight ALEWarningSign ctermfg=NONE ctermbg=NONE guifg=yellow guibg=NONE
+syntax match InlineURL /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
+highlight link InlineURL KeyWord

@@ -107,7 +107,11 @@ let g:ale_sign_warning = '✖'
 
 " Indent guides
 Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '┆'
+let g:indentLine_fileTypeExclude = ['json']
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_char = '┊'
 
 " Color themes
 Plug 'chriskempson/base16-vim'
@@ -217,8 +221,10 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 nnoremap <silent> <Leader>m :Denite menu<CR>
 
-" Stay compatible with nerd-commenter after switching to vim-commentary
-map <Leader>c<Space> gcc
+" map comment toggle to something like every other editor
+" for some weird reason '_' maps to '/'
+map <C-_> :Commentary<Esc>
+map <C-/> :Commentary<Esc>
 
 " neovim terminal settings
 " there can be an only be one!
@@ -237,8 +243,11 @@ if has('nvim')
     startinsert
   endfunction
   command! Term execute 'call OpenTerminal()'
-  tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
-  nnoremap <silent> <Leader>t :Term<CR>
+  " Toggle insert mode
+  tnoremap <silent> <Esc> <C-\><C-n>
+  " Close and open the terminal
+  tnoremap <silent> <C-t> <C-\><C-n>:q<CR>
+  nnoremap <silent> <C-t> :Term<CR>
 endif
 
 " TODO: move to vim-pemberly plugin?
@@ -256,6 +265,9 @@ command! -range SendSelectionToRemote execute "<line1>,<line2>w! ".$HOME."/yanke
 command! ResetWorkspace Startify | BufOnly
 command! ShowSignColumnColor echo synIDattr(hlID("SignColumn"), "bg")
 command! ConcealRemove execute 'set conceallevel=0'
+command! ColorSchemes Denite colorscheme
+command! ListBuffers Denite buffer
+command! RecentFiles Denite file_old
 
 " Do custom highlighting at the end so it doesn't get inadvertantly cleared
 highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=#353b45
@@ -269,17 +281,17 @@ call denite#custom#map(
       \ 'noremap'
       \)
 call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-k>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
+      \ 'insert',
+      \ '<C-k>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
 call denite#custom#map(
-	      \ 'insert',
-	      \ '<up>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
+      \ 'insert',
+      \ '<up>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
 call denite#custom#map(
       \ 'insert',
       \ '<down>',
@@ -290,6 +302,12 @@ call denite#custom#map(
       \ 'insert',
       \ '<C-z>',
       \ '<denite:toggle_select>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-*>',
+      \ '<denite:toggle_select_all>',
       \ 'noremap'
       \)
 

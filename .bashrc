@@ -38,17 +38,13 @@ reset=$(tput -Txterm sgr0)
 export GOPATH=$HOME/work
 export GOSRC=$GOPATH/src/github.com/jackson-dean
 export PS1='\[$pink\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black\] \[\033[0;33m\]$(__vcs_name)\[\033[00m\]\n\[$reset\]\[$reset\]\$ '
-export PATH=$PATH:$HOME/LinkedIn/bin:$GOPATH/bin
-export EDITOR=vim
+export EDITOR=nvim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
-
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
 
 # use vim navigation in the terminal
 set -o vi
 export NVM_DIR="/Users/jcdean/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH=$PATH:"node_modules/.bin":$GOPATH/bin

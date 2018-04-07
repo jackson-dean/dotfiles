@@ -8,11 +8,11 @@
 	st = status
 	cam = commit --amend
 	rbu = review update
-	rbdc = review dcommit
+	rbd = review dcommit
 	l = log
+  g = log --graph --oneline --all --decorate
 	b = branch
   sb = switchbranch
   wip = !git add -A && git commit -m 'WIP' -n
-  ld = log --graph --oneline --all --decorate
 [color]
 	ui = true

@@ -92,10 +92,3 @@ __vcs_name() {
         echo "- [hg $(hg branch)]"
     fi
 }
-
-crtdist() {
-  if [[ -z "$1" ]]; then
-    echo 'Missing job UUID!'
-  fi
-  ligradle DownloadTestDistFromBinaryCache -Ptarget="crtdist" -Pkey="${1}.dist"
-}

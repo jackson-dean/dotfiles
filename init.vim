@@ -235,7 +235,7 @@ set wildmenu " Show completion options (filenames, plugin functions, etc) in a t
 set wildignore+=*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/* " What to ignore for filename completion suggestions
 
 set termguicolors
-colorscheme base16-ocean
+colorscheme california
 
 " Make cursor skinny on insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -340,6 +340,6 @@ command! RecentFiles Denite file_old
 command! Dash silent !ssh jcdean@jcdean-mn1 'open "dash://<cword>"'
 
 " Do custom highlighting at the end so it doesn't get inadvertantly cleared
-highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=#343d46
-highlight ALEWarningSign ctermfg=NONE ctermbg=NONE guifg=yellow guibg=#343d46
+highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=#444444
+highlight ALEWarningSign ctermfg=NONE ctermbg=NONE guifg=yellow guibg=#444444
 

@@ -38,8 +38,6 @@ Plug 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plug 'chriskempson/base16-vim' " Colorschemes
 Plug 'Yggdroot/indentLine' " dotted indent guides
 
-" For work
-Plug 'git://gitli.corp.linkedin.com/jcdean/vim-pemberly.git'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""

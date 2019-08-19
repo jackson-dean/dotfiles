@@ -10,7 +10,7 @@
 [ -r ~/.git-prompt.sh ] && source ~/.git-prompt.sh
 
 #git completion
-[ -r ~/.git-completion.bash ] && source ~/.git-completion.bash
+[ -r ~/git-completion.bash ] && source ~/git-completion.bash
 
 #git aliases
 [ -r ~/.git_aliases ] && source ~/.git_aliases
@@ -47,4 +47,7 @@ set -o vi
 export NVM_DIR="/Users/jcdean/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH=$PATH:"node_modules/.bin":$GOPATH/bin
+export PATH=$PATH:$HOME/bin:"node_modules/.bin":$GOPATH/bin
+
+#needed to run voyager-web
+export NODE_OPTIONS="--max-old-space-size=8192"

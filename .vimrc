@@ -164,7 +164,7 @@ nnoremap <silent> <S-up> :resize +10<CR>
 nnoremap <silent> <S-down> :resize -10<CR>
 nnoremap <silent> <Leader><CR> o<Esc>
 nnoremap <silent> <Leader>c :noh<CR>
-inoremap jj <Esc>
+inoremap jk <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>

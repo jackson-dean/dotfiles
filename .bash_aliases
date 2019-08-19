@@ -12,8 +12,7 @@ alias tmxa="tmux a -t"
 alias cl="clear"
 alias matlab="/Applications/MATLAB_R2017a.app/bin/matlab -nodesktop"
 alias localeslint="./node_modules/.bin/eslint"
-alias vim="nvim"
-alias vi="nvim"
+alias pemberly_cleanup="pkill -9 node && pkill -9 ember && pkill -9 java"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 
@@ -22,7 +21,7 @@ if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; 
 export CLICOLOR_FORCE=1
 
 # `cat` with beautiful colors. requires: sudo easy_install -U Pygments
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias catc='pygmentize -O style=monokai -f console256 -g'
 
 # File size
 alias fs="stat -f \"%z bytes\""

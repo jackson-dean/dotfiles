@@ -187,7 +187,6 @@ syntax enable " Turn on syntax highlighting
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 set t_Co=256 " Enable pretty colors
 set number " Turn on line numbers
-set relativenumber " Turn relative numbers.
 set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
 set nowrap " Disable line auto wrapping
@@ -235,7 +234,7 @@ set wildmenu " Show completion options (filenames, plugin functions, etc) in a t
 set wildignore+=*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/* " What to ignore for filename completion suggestions
 
 set termguicolors
-colorscheme california
+colorscheme base16-gruvbox-dark-pale
 
 " Make cursor skinny on insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -257,7 +256,7 @@ let mapleader=","
 " map tab to enter selection from pum
 inoremap <expr><tab> pumvisible() ? "\<C-y>" : "\<tab>"
 " More convenient exiting insert mode
-inoremap jk <Esc>
+imap jk <Esc>
 " More convenient split navigation
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

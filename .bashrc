@@ -46,5 +46,3 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete 
 set -o vi
 export NVM_DIR="/Users/jcdean/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH=$PATH:"node_modules/.bin":$GOPATH/bin

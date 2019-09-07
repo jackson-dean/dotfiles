@@ -6,14 +6,7 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias ll="ls -la"
 alias pyserve="python -m SimpleHTTPServer 8000"
-alias gosrc="cd $GOSRC"
-alias vimrc="vim $HOME/.vimrc"
-alias tmxa="tmux a -t"
 alias cl="clear"
-alias matlab="/Applications/MATLAB_R2017a.app/bin/matlab -nodesktop"
-alias localeslint="./node_modules/.bin/eslint"
-alias vim="nvim"
-alias vi="nvim"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 

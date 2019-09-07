@@ -40,11 +40,21 @@ export GOSRC=$GOPATH/src/github.com/jackson-dean
 export PS1='\[$pink\]\u\[$yellow\]@\[$green\]\h:\[$black\]\[$lt_blue\]\w\[$black\] \[\033[0;33m\]$(__vcs_name)\[\033[00m\]\n\[$reset\]\[$reset\]\$ '
 export EDITOR=nvim
 export PROMPT_COMMAND='printf "\033]0;%s\007" $(basename "$PWD")'
+export PATH=$PATH:"/usr/local/bin":$GOPATH/bin
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
+
+### for digital ocean deployments
+export DROPLET_2_IP='138.197.203.137'
+export DROPLET_2_USER='jldean'
 
 # use vim navigation in the terminal
 set -o vi
-export NVM_DIR="/Users/jldean/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH=$PATH:"/usr/local/bin":$GOPATH/bin
+eval "$(hub alias -s)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

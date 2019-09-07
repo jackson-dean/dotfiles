@@ -38,8 +38,6 @@ Plug 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
 Plug 'chriskempson/base16-vim' " Colorschemes
 Plug 'Yggdroot/indentLine' " dotted indent guides
 
-" For work
-Plug 'git://gitli.corp.linkedin.com/jcdean/vim-pemberly.git'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -187,7 +185,6 @@ syntax enable " Turn on syntax highlighting
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 set t_Co=256 " Enable pretty colors
 set number " Turn on line numbers
-set relativenumber " Turn relative numbers.
 set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
 set nowrap " Disable line auto wrapping
@@ -342,4 +339,7 @@ command! Dash silent !ssh jcdean@jcdean-mn1 'open "dash://<cword>"'
 " Do custom highlighting at the end so it doesn't get inadvertantly cleared
 highlight ALEErrorSign ctermfg=NONE ctermbg=NONE guifg=red guibg=#444444
 highlight ALEWarningSign ctermfg=NONE ctermbg=NONE guifg=yellow guibg=#444444
+
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 

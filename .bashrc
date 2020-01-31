@@ -26,6 +26,9 @@ lt_blue=$(tput -Txterm setaf 6)
 bold=$(tput -Txterm bold)
 reset=$(tput -Txterm sgr0)
 
+GIT_PS1_SHOWDIRTYSTATE='y'
+GIT_PS1_SHOWCOLORHINTS='y'
+GIT_PS1_SHOWSTASHSTATE='y'
 PROMPT_COMMAND='__git_ps1' # git info
 PROMPT_COMMAND+=' "\[$pink\]\u' #username
 PROMPT_COMMAND+='\[$yellow\]@' #at-sign

@@ -16,7 +16,9 @@ if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; 
 export CLICOLOR_FORCE=1
 
 # `cat` with beautiful colors. requires: sudo easy_install -U Pygments
-alias ccat='if which pygmentizes; then pygmentize -O style=monokai -f console256 -g; else cat; fi'
+if which pygmentize; then
+  alias cat='pygmentize -O style=monokai -f console256 -g'
+fi
 
 # File size
 alias fs="stat -f \"%z bytes\""

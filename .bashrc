@@ -37,6 +37,7 @@ PROMPT_COMMAND+=' \[$lt_blue\]\w\[$reset\]"' #working directory
 PROMPT_COMMAND+=' "\[$lt_blue\]\n>\[$reset\] "' #cursor line
 export PROMPT_COMMAND
 export EDITOR=nvim
+export BASH_SILENCE_DEPRECATION_WARNING=1 # silence zsh deprecaton warning for mac
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
 
 # use vim navigation in the terminal

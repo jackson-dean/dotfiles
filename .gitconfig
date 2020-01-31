@@ -12,7 +12,9 @@
 	l = log
   g = log --graph --oneline --all --decorate
 	b = branch
-  sb = switchbranch
   wip = !git add -A && git commit -m 'WIP' -n
 [color]
 	ui = true
+[core]
+	excludesfile = /Users/jcdean/.gitignore_global
+	editor = code --wait

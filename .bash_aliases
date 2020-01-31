@@ -1,12 +1,13 @@
 #!/bin/bash
 
-alias ..="cd .."
-alias .-="cd -"
-alias mv="mv -v"
-alias cp="cp -v"
-alias ll="ls -la"
-alias pyserve="python -m SimpleHTTPServer 8000"
 alias cl="clear"
+alias cp="cp -v"
+alias g="git"
+alias ll="ls -la"
+alias mv="mv -v"
+alias pyserve="python -m SimpleHTTPServer 8000"
+alias vi="nvim"
+alias vim="nvim"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 
@@ -15,7 +16,7 @@ if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; 
 export CLICOLOR_FORCE=1
 
 # `cat` with beautiful colors. requires: sudo easy_install -U Pygments
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias cat='if which pygmentizes; then pygmentize -O style=monokai -f console256 -g; else cat; fi'
 
 # File size
 alias fs="stat -f \"%z bytes\""

@@ -6,8 +6,6 @@ alias g="git"
 alias ll="ls -la"
 alias mv="mv -v"
 alias pyserve="python -m SimpleHTTPServer 8000"
-alias vi="nvim"
-alias vim="nvim"
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 

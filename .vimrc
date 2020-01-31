@@ -1,85 +1,4 @@
 set nocompatible " Disable legacy vi compatiblity
-
-" Start: Vundle Package Manager Settings
-filetype off " required for Vundle (I don't know why)
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim' " Package manager
-
-" HTML Packages
-Plugin 'othree/html5.vim' " HTML5 syntax enhancements
-
-" JavaScript Packages
-Plugin 'prettier/vim-prettier' " Formate javasript
-Plugin 'pangloss/vim-javascript' " Better es6/es2015 syntax support
-Plugin 'ternjs/tern_for_vim' " static analysis for js
-Plugin 'carlitux/deoplete-ternjs'
-
-" Ember Packages
-Plugin 'joukevandermaas/vim-ember-hbs'
-
-" React Packages
-Plugin 'mxw/vim-jsx' " React/jsx support
-
-" Git packages
-Plugin 'tpope/vim-fugitive' " Git integration for vim
-Plugin 'airblade/vim-gitgutter' " Show git edit annotations in the gutter
-
-" JSON Packages
-Plugin 'elzr/vim-json' " JSON syntax enhancments for vim
-
-" File Explorer Packages
-Plugin 'ryanoasis/vim-devicons' " Filetype icon support
-Plugin 'scrooloose/nerdtree' " File explorer
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Colored nerdtree icons
-Plugin 'tyok/nerdtree-ack' " Search in folder
-
-" SCSS Packages
-Plugin 'cakebaker/scss-syntax.vim' " Sass/Scss syntax enhancements
-
-" Snippets Packages
-Plugin 'SirVer/ultisnips' " Snippet manager
-Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
-Plugin 'tomtom/tlib_vim' " Snipmate dependency
-
-" Autocompletion Packages
-Plugin 'ervandew/supertab' " Tab autocompletion
-
-" General Utilities
-Plugin 'Valloric/ListToggle' " Quickly toggle Quickfix and Location panels
-Plugin 'Yggdroot/indentLine' " Indent guide lines
-Plugin 'easymotion/vim-easymotion' " Make moving even easier
-Plugin 'jiangmiao/auto-pairs' " Automatically insert pairs of quotes/braces/brackets while typing
-Plugin 'majutsushi/tagbar' " Toggle file structure diagrams using ctags
-Plugin 'mhinz/vim-startify' " Fancy start screen showing recently edited files
-Plugin 'mileszs/ack.vim' " Vim ack/ag integration
-Plugin 'ntpeters/vim-better-whitespace' " Highlight trailing/unnecessary whitespace
-Plugin 'qpkorr/vim-bufkill' " Kill buffer without killing the split/window
-Plugin 'scrooloose/nerdcommenter' " Quickly toggle comment blocks
-Plugin 'scrooloose/syntastic' " Linter
-Plugin 'tpope/vim-surround' " Plugin for working with quotes/braces/brackets etc
-Plugin 'vim-airline/vim-airline' " Fancy statusbar
-Plugin 'vim-airline/vim-airline-themes' " Themes for fancy statusbar
-Plugin 'vim-scripts/BufOnly.vim' " Delete all hidden buffers leaving only the currently active
-Plugin 'junegunn/fzf' " fuzzy search engine
-
-" Colorscheme Packages
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/base16-vim'
-Plugin 'dikiaap/minimalist'
-Plugin 'morhetz/gruvbox'
-Plugin 'tomasr/molokai'
-Plugin 'tpope/vim-vividchalk'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'rafi/awesome-vim-colorschemes'
-
-" For work
-Plugin 'git://gitli.corp.linkedin.com/jcdean/vim-pemberly.git'
-
-call vundle#end()
-" End: Vundle Package Manager Settings
-
 filetype plugin indent on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 syntax enable " Turn on syntax highlighting
@@ -89,14 +8,11 @@ set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
 set nowrap " Disable line auto wrapping
 set fillchars+=vert:\┋ " Solid pipe character for window split icon
-set cursorline " highlight current line
 set cmdheight=2 " Increase command line height
 set numberwidth=5 " Gutter width
 set autoread " Auto re-read files that have changes outside of vim
 set lazyredraw " Don't redraw while executing macros
-set signcolumn=yes " Always show the signcolumn
 set pastetoggle=<F2> " Quick paste toggle
-set colorcolumn=80 " Vertical rule at 100 columns
 
 " Swap/Backup file settings
 set noswapfile " no more weirdo swap files
@@ -124,6 +40,17 @@ let &tabstop=g:indentation_depth " Set tab character width
 let &softtabstop=g:indentation_depth " Set space added by pressing tab key and removed by pressing backspace
 let &backspace=g:indentation_depth " Make backspace work like a sane person would expect
 
+" Netrw settings
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
 set foldmethod=indent
 set foldlevelstart=99
 
@@ -140,8 +67,9 @@ au BufNewFile,BufRead *.src setlocal ft=xml
 au BufNewFile,BufRead *.pdsc setlocal ft=json
 
 set termguicolors
-" colorscheme solarized-high-contrast
-colorscheme base16-onedark
+colorscheme slate
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -151,201 +79,21 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Personal key remapping
 let mapleader=","
-map <C-p> :FZF<CR>
-map <C-n><C-t> :NERDTreeToggle<CR>
 map <Leader>p "0p
-map <Leader>ft :Prettier<CR>
-map <Leader>rf :PemberlyRelatedFile<CR>
 map <S-Tab> :bnext<CR>
 map gf :vertical wincmd f<CR>
+map <C-n><C-t> :Vexplore<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
 nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
 nnoremap <silent> <S-down> :resize -10<CR>
 nnoremap <silent> <Leader><CR> o<Esc>
 nnoremap <silent> <Leader>c :noh<CR>
-inoremap jj <Esc>
+inoremap jk <Esc>
 vnoremap // y/<C-R>"<CR>"
-nnoremap <silent> <Leader>gs :Gstatus<CR>
-nnoremap <silent> <Leader>gb :Gblame<CR>
-nnoremap <silent> <Leader>tb :TagbarToggle<CR>
-nnoremap <Leader>a :Ack!<Space>
-nnoremap <Leader>fr :FindRefs<CR>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <Leader>nf :NERDTreeFind<CR>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
-
-" neovim terminal settings
-" there can be an only be one!
-if has('nvim')
-  function! OpenTerminal()
-    let l:termBuffers = filter(map(copy(getbufinfo()), 'v:val.name'), 'v:val =~ "term://"')
-    if (len(l:termBuffers))
-      let l:termBuffer = l:termBuffers[0]
-      let l:bufferDictionary = getbufinfo(l:termBuffer)[0]
-      if (l:bufferDictionary['hidden'])
-        exec 'sb '.l:termBuffers[0]
-      endif
-    else
-      split | terminal
-    endif
-    startinsert
-  endfunction
-  command! Term execute 'call OpenTerminal()'
-  tnoremap <silent> <Leader>t <C-\><C-n>:q<CR>
-  nnoremap <silent> <Leader>t :Term<CR>
-endif
-
-" TODO: move to vim-pemberly plugin?
-function! FindReferences()
-  set isk+=/,-
-  let l:ref = expand('<cword>')
-  execute 'Ack! ' . l:ref . ' --handlebars --js --ignore="*test.js"'
-  set isk-=/,-
-endfunction
-
-" Personal commands
-command! FindRefs execute 'call FindReferences()'
-command! DiffOn execute 'windo diffthis'
-command! DiffOff execute "diffoff!"
-command! Vrc execute "vsplit ".$MYVIMRC
-command! Gdmaster execute "Gvsplit master:%"
-
-" vmustache/vim-mustache-handlebars settings
-let g:mustache_abbreviations = 1
-
-" scrooloose/nerdtree settings
-let NERDTreeMouseMode = 2
-"let NERDTreeRespectWildIgnore = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeIgnore=[
-      \'^\.gradle$',
-      \'^\.log$',
-      \'^logs$',
-      \'^i18n$',
-      \'^node_modules$',
-      \'^dist$',
-      \'^tmp$',
-      \'^bower_components$',
-      \'^coverage$',
-      \'^build$',
-      \'^acl$',
-      \'^screenshots$',
-      \'^tools$',
-      \'^vendor$',
-      \'^docs$',
-      \'^out$',
-      \'^concat-stats-for$']
-
-" scrooloose/nerdcommenter
-let NERDSpaceDelims=1
-
-" scrooloose/syntastic settings
-let SignColumnBGC = synIDattr(hlID("SignColumn"), "bg")
-exe 'highlight SyntasticErrorSign guifg=red guibg='.SignColumnBGC
-let g:syntastic_javascript_eslint_exec = '$PWD/node_modules/.bin/eslint'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = '✖'
-let g:syntastic_style_error_symbol = '✖'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '⚠'
-
-" ctrlpvim/ctrlp.vim
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Respect .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
-" vim-airline/vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
-let g:airline_theme='base16'
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" Refresh vim-airline after sourcing vimrc
-if exists('g:loaded_airline')
-  AirlineRefresh
-endif
-
-" mhinz/vim-startify
-let g:startify_custom_header = []
-let g:startify_list_order = [
-  \ ['Sessions'], 'sessions',
-  \ ['Recently Modified in Current Directory'], 'dir',
-  \ ['Recently Modified Globally'], 'files',
-  \ ['Bookmarks'], 'bookmarks',
-  \ ['Commands'], 'commands',
-\]
-let g:startify_session_autoload = 1
-let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root = 1
-
-" mileszs/ack.vim
-let g:ackhighlight = 1
-if executable('ag')
-  " Use ag (the silver searcher) if it's installed
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Valloric/ListToggle
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-
-" elzr/vim-json
-let g:vim_json_syntax_conceal = 0
-
-" pangloss/vim-javascript
-let g:javascript_plugin_jsdoc = 0
-
-" heavenshell/vim-jsdoc
-let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_input_description = 1
-let g:jsdoc_enable_es6 = 1
-let g:jsdoc_underscore_private = 1
-
-" Yggdroot/indentLine
-let g:indentLine_char = '┊'
-let g:indentLine_enabled = 1
-
-" airblade/vim-gitgutter settings
-set signcolumn=yes
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✎'
-let g:gitgutter_sign_removed = '－'
-let g:gitgutter_sign_removed_first_line = '－'
-let g:gitgutter_sign_modified_removed = '✎'
-
-" ryanoasis/vim-devicons
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-" tiagofumo/vim-nerdtree-syntax-highlight
-let s:yellow = "F2DD58"
-let s:green = "8FAA54"
-let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor['js'] = s:yellow " make js a brighter yellow
-let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor['json'] = s:green " make json green
-let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid  error
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
-endif
-
-" SirVer/ultisips
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips" " personal snippets directory
-let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

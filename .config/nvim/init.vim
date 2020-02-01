@@ -1,1 +1,0 @@
-/Users/jldean/dotfiles/.config/nvim/init.vim

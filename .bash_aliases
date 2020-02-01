@@ -7,6 +7,11 @@ alias ll="ls -la"
 alias mv="mv -v"
 alias pyserve="python -m SimpleHTTPServer 8000"
 
+if [ ! -z `which fzf` ]; then
+  alias ff='vim $(fzf --height 75% --layout=reverse --border)'
+  alias fd='cd $(awk '"'"'{print $2}'"'"' ~/Library/autojump/autojump.txt | fzf --height 75% --layout=reverse --border)'
+fi
+
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases
 
 # always use color, even when piping (to awk,grep,etc)

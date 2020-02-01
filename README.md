@@ -13,3 +13,5 @@ start a new terminal:
 ```sh
 sudo easy_install -U Pygments
 ```
+Install fzf https://github.com/junegunn/fzf<br>
+Install autojump https://github.com/wting/autojump

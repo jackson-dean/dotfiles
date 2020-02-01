@@ -1,4 +1,4 @@
 .tern-port
 RUNNING_PID
 .ember-cli.*
-/ssl
+_wildcard.www.*

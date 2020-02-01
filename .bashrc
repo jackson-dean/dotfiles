@@ -14,6 +14,7 @@
 
 # Terminal fuzzy file search
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag -l --hidden'
 
 #terminal colors
 black=$(tput -Txterm setaf 0)
@@ -35,7 +36,14 @@ PROMPT_COMMAND+='\[$yellow\]@' #at-sign
 PROMPT_COMMAND+='\[$green\]\h' #hostname
 PROMPT_COMMAND+=' \[$lt_blue\]\w\[$reset\]"' #working directory
 PROMPT_COMMAND+=' "\[$lt_blue\]\n>\[$reset\] "' #cursor line
+
 export PROMPT_COMMAND
+
+# https://github.com/wting/autojump
+# NOTE: This has to come AFTER exporting PROMPT_COMMAND
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 export EDITOR=nvim
 export BASH_SILENCE_DEPRECATION_WARNING=1 # silence zsh deprecaton warning for mac
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g

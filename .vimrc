@@ -3,6 +3,7 @@ filetype plugin indent on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 syntax enable " Turn on syntax highlighting
 set t_Co=256 " Enable pretty colors
+set termguicolors
 set number " Turn on line numbers
 set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
@@ -62,16 +63,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 au BufNewFile,BufRead *.pdsc setlocal ft=json
 
-set termguicolors
-colorscheme slate
+
+" NOTE: these two lines must come after setting the colorscheme.
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
-
-" source vimrc after writing to it
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Personal key remapping
 let mapleader=","

@@ -10,6 +10,8 @@ alias pyserve="python -m SimpleHTTPServer 8000"
 if [ ! -z `which fzf` ]; then
   alias ff='vim $(fzf --height 75% --layout=reverse --border)'
   alias fd='cd $(awk '"'"'{print $2}'"'"' ~/Library/autojump/autojump.txt | fzf --height 75% --layout=reverse --border)'
+  alias fb='git checkout $(git branch -a | fzf)'
+  alias fh='eval $(history | awk '"'"'{ s = ""; for (i = 2; i <= NF; i++) s = s $i " "; print s }'"'"' | fzf)'
 fi
 
 ##### The following aliases come from https://github.com/paulirish/dotfiles/blob/master/.aliases

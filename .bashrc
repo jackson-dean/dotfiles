@@ -15,6 +15,7 @@
 # Terminal fuzzy file search
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag -l --hidden'
+export FZF_DEFAULT_OPTS='--height 75% --layout=reverse --border'
 
 #terminal colors
 black=$(tput -Txterm setaf 0)

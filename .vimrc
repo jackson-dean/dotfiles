@@ -91,3 +91,14 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
+
+" Commenting blocks of code.
+autocmd FileType javascript,java,scala let b:comment_leader = '// '
+autocmd FileType sh,python  let b:comment_leader = '# '
+autocmd FileType vim  let b:comment_leader = '" '
+noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <Leader>uc :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+" FZF config
+set rtp+=/usr/local/opt/fzf
+map <C-p> :FZF<CR>

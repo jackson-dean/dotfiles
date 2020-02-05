@@ -1,0 +1,3 @@
+if [ ! -z `command -v fzf` ]; then
+  bind "\C-p": 'vim $(fzf --height 75% --layout=reverse --border)'
+fi

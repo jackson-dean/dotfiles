@@ -1,5 +1,11 @@
 # .bashrc
 
+# use vim navigation in the terminal
+# set -o vi
+
+# Source global definitions
+[ -r /etc/bashrc ] && source /etc/bashrc
+
 #aliases
 [ -r ~/.bash_aliases ] && source ~/.bash_aliases
 
@@ -9,11 +15,9 @@
 #git completion
 [ -r ~/git-completion.bash ] && source ~/git-completion.bash
 
-# Source global definitions
-[ -r /etc/bashrc ] && source /etc/bashrc
-
 # Terminal fuzzy file search
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 export FZF_DEFAULT_COMMAND='ag -l --hidden'
 export FZF_DEFAULT_OPTS='--height 75% --layout=reverse --border'
 
@@ -48,9 +52,6 @@ export PROMPT_COMMAND
 export EDITOR=nvim
 export BASH_SILENCE_DEPRECATION_WARNING=1 # silence zsh deprecaton warning for mac
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
-
-# use vim navigation in the terminal
-set -o vi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

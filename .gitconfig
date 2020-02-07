@@ -2,16 +2,16 @@
 	name = Jackson Dean
 	email = jckson.dean@gmail.com
 [alias]
+	ap = add --patch
+	cam = commit --amend
 	co = checkout
 	cob = checkout -b
-	ap = add --patch
-	st = status
-	cam = commit --amend
-	rbu = review update
-	rbd = review dcommit
 	l = log
+	rbu = review update --update-desc
+	st = status
+  b = !git checkout $(git branch -a | fzf)
   g = log --graph --oneline --all --decorate
-	b = branch
+  sub = !git review dcommit && git submit --async
   wip = !git add -A && git commit -m 'WIP' -n
 [color]
 	ui = true

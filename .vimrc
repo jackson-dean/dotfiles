@@ -63,7 +63,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 au BufNewFile,BufRead *.src setlocal ft=xml
 au BufNewFile,BufRead *.pdsc setlocal ft=json
 
-
+colorscheme gruvbox
 " NOTE: these two lines must come after setting the colorscheme.
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40

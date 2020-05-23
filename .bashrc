@@ -48,8 +48,7 @@ export PROMPT_COMMAND
 # NOTE: This has to come AFTER exporting PROMPT_COMMAND
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
-export EDITOR=nvim
+export EDITOR=vim
 export BASH_SILENCE_DEPRECATION_WARNING=1 # silence zsh deprecaton warning for mac
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
 
@@ -59,3 +58,5 @@ export NVM_DIR="$HOME/.nvm"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+export VOLTA_HOME="/Users/jcdean/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

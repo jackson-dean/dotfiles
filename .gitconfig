@@ -7,14 +7,16 @@
 	co = checkout
 	cob = checkout -b
 	l = log
-	rbu = review update --update-desc
 	st = status
   b = !git checkout $(git branch -a | fzf)
   g = log --graph --oneline --all --decorate
-  sub = !git review dcommit && git submit --async
   wip = !git add -A && git commit -m 'WIP' -n
+  reset-master = !git fetch origin master && git reset --hard origin/master
+  reuse-message = commit --reuse-message=HEAD@{1}
+  rbc = review create --owners-only --no-prompt -g org-web-reviewers
+  rbu = !~/bin/rbu
+  rbs = !git review dcommit && git submit --async
 [color]
 	ui = true
 [core]
 	excludesfile = /Users/jcdean/.gitignore_global
-	editor = code --wait

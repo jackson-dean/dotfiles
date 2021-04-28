@@ -6,10 +6,12 @@ alias g="git"
 alias ll="ls -la"
 alias mv="mv -v"
 alias pyserve="python -m SimpleHTTPServer 8000"
+alias vi="nvim"
+alias vim="nvim"
 
 if [ ! -z `which fzf` ]; then
   alias ff='vim $(fzf --height 75% --layout=reverse --border)'
-  alias fd='cd $(awk '"'"'{print $2}'"'"' ~/Library/autojump/autojump.txt | fzf --height 75% --layout=reverse --border)'
+  alias fd='cd $(awk '"'"'{print $2}'"'"' ~/.local/share/autojump/autojump.txt | fzf --height 75% --layout=reverse --border)'
   alias fb='git checkout $(git branch -a | fzf)'
   alias fh='eval $(history | awk '"'"'{ s = ""; for (i = 2; i <= NF; i++) s = s $i " "; print s }'"'"' | fzf)'
 fi

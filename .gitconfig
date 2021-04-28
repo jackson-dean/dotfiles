@@ -13,10 +13,11 @@
   wip = !git add -A && git commit -m 'WIP' -n
   reset-master = !git fetch origin master && git reset --hard origin/master
   reuse-message = commit --reuse-message=HEAD@{1}
-  rbc = review create --owners-only --no-prompt -g org-web-reviewers
+  rbc = review create --owners-only --no-prompt
   rbu = !~/bin/rbu
   rbs = !git review dcommit && git submit --async
 [color]
 	ui = true
 [core]
 	excludesfile = /Users/jcdean/.gitignore_global
+	editor = nvim

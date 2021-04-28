@@ -46,7 +46,7 @@ export PROMPT_COMMAND
 
 # https://github.com/wting/autojump
 # NOTE: This has to come AFTER exporting PROMPT_COMMAND
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 
 export EDITOR=vim
 export BASH_SILENCE_DEPRECATION_WARNING=1 # silence zsh deprecaton warning for mac
@@ -58,5 +58,7 @@ export NVM_DIR="$HOME/.nvm"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-export VOLTA_HOME="/Users/jcdean/.volta"
+export NODE_OPTIONS="--max-old-space-size=18432"
+export PATH="$HOME/.local/bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

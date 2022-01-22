@@ -3,18 +3,17 @@
 	email = jckson.dean@gmail.com
 [alias]
 	co = checkout
-	cob = checkout -b
+	cob = "!git checkout -B jackson/$1; exit;"
 	ap = add --patch
 	st = status
 	cam = commit --amend
-	rbu = review update
-	rbd = review dcommit
 	l = log
   g = log --graph --oneline --all --decorate
 	b = branch
   wip = !git add -A && git commit -m 'WIP' -n
+  pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+  reset-branch = !git fetch origin `git rev-parse --abbrev-ref HEAD` && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
 [color]
 	ui = true
 [core]
 	excludesfile = /Users/jcdean/.gitignore_global
-	editor = code --wait

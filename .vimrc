@@ -1,3 +1,18 @@
+call plug#begin()
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-commentary'
+
+" Initialize plugin system
+call plug#end()
+
+" scrooloose/nerdtree settings
+let NERDTreeMinimalUI = 1
+
 set nocompatible " Disable legacy vi compatiblity
 filetype plugin indent on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
@@ -59,10 +74,8 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Force .src files to use xml syntax
-au BufNewFile,BufRead *.src setlocal ft=xml
-au BufNewFile,BufRead *.pdsc setlocal ft=json
-
+set termguicolors
+colorscheme base16-onedark
 
 " NOTE: these two lines must come after setting the colorscheme.
 set cursorline
@@ -73,17 +86,17 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Personal key remapping
 let mapleader=","
+map <C-p> :FZF<CR>
 map <Leader>p "0p
 map <S-Tab> :bnext<CR>
 map gf :vertical wincmd f<CR>
-map <C-n><C-t> :Vexplore<CR>
+map <C-n><C-t> :NERDTreeToggle<CR>
 nnoremap <silent> <S-left> :vertical resize -10<CR>
 nnoremap <silent> <S-right> :vertical resize +10<CR>
 nnoremap <silent> <S-up> :resize +10<CR>
 nnoremap <silent> <S-down> :resize -10<CR>
 nnoremap <silent> <Leader><CR> o<Esc>
 nnoremap <silent> <Leader>c :noh<CR>
-inoremap jk <Esc>
 vnoremap // y/<C-R>"<CR>"
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

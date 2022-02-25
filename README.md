@@ -21,3 +21,10 @@ Install `ag` https://github.com/ggreer/the_silver_searcher<br>
 # on mac with homebrew
 brew install the_silver_searcher fzf autojump
 ```
+
+Find the autojump data file by running:
+```sh
+autojump -s
+```
+You may need to update the fzf aliases in `.bash_aliases` with
+this path depending on the OS.

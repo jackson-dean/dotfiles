@@ -13,7 +13,8 @@
   wip = !git add -A && git commit -m 'WIP' -n
   pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
   reset-branch = !git fetch origin `git rev-parse --abbrev-ref HEAD` && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
+  d = diff --color-words
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/jcdean/.gitignore_global
+	excludesfile = /home/jackson/.gitignore_global

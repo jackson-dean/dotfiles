@@ -6,6 +6,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-commentary'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()
@@ -70,12 +73,12 @@ set wildmenu " Show completion options (filenames, plugin functions, etc) in a t
 set wildignore+=*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ignore for filename completion suggestions
 
 " Make cursor skinny on insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
+let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
+let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise
 
 set termguicolors
-colorscheme base16-onedark
+colorscheme base16-ashes
 
 " NOTE: these two lines must come after setting the colorscheme.
 set cursorline

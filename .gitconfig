@@ -5,16 +5,19 @@
 	co = checkout
 	cob = "!git checkout -B jackson/$1; exit;"
 	ap = add --patch
+	s = status
 	st = status
 	cam = commit --amend
 	l = log
-  g = log --graph --oneline --all --decorate
+	g = log --graph --oneline --all --decorate
 	b = branch
-  wip = !git add -A && git commit -m 'WIP' -n
-  pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
-  reset-branch = !git fetch origin `git rev-parse --abbrev-ref HEAD` && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
-  d = diff --color-words
+	wip = !git add -A && git commit -m 'WIP' -n
+	pushu = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	reset-branch = !git fetch origin $(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
+	d = diff --color-words
+	sync-upstream = !git checkout main && git fetch upstream main && git reset --hard upstream/main && git push -f origin main
+  sync-origin = !git checkout main && git fetch origin main && git reset --hard origin/main
 [color]
 	ui = true
 [core]
-	excludesfile = /home/jackson/.gitignore_global
+	excludesfile = ~/.gitignore_global

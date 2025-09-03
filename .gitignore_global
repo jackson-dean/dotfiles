@@ -1,4 +1,2 @@
-.tern-port
-RUNNING_PID
-.ember-cli.*
-_wildcard.www.*
+.vscode
+*.code-workspace

@@ -78,7 +78,6 @@ let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
 let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise
 
 set termguicolors
-colorscheme base16-ashes
 
 " NOTE: these two lines must come after setting the colorscheme.
 set cursorline

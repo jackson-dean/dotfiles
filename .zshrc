@@ -37,6 +37,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 autoload -U compinit; compinit
 
 export EDITOR="vim"
+export BAT_THEME="gruvbox-dark"
 
 eval "$(starship init zsh)"
 

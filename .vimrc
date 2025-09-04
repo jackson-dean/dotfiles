@@ -1,27 +1,7 @@
-call plug#begin()
-
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'easymotion/vim-easymotion'
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-commentary'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" Initialize plugin system
-call plug#end()
-
-" scrooloose/nerdtree settings
-let NERDTreeMinimalUI = 1
-
 set nocompatible " Disable legacy vi compatiblity
 filetype plugin indent on " Allow smart indentation and filetype detection
 set encoding=utf8 " Set charset to utf8 (Necessary for fancy icon plugins)
 syntax enable " Turn on syntax highlighting
-set t_Co=256 " Enable pretty colors
-set termguicolors
 set number " Turn on line numbers
 set bg=dark " Dark background
 set hidden " Allow 'hidden' buffers
@@ -76,12 +56,6 @@ set wildignore+=*/bower_components/*,*/.git/*,*/concat-stats-for/* " What to ign
 let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
 let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
 let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise
-
-set termguicolors
-
-" NOTE: these two lines must come after setting the colorscheme.
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " strip trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

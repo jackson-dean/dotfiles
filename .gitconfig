@@ -3,7 +3,7 @@
 	email = jckson.dean@gmail.com
 [alias]
 	co = checkout
-	cob = "!git checkout -B jackson/$1; exit;"
+	cob = "!git checkout -B jdean/$1; exit;"
 	ap = add --patch
 	s = status
 	st = status

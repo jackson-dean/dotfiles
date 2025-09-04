@@ -4,7 +4,6 @@ alias g="git"
 alias ll="ls -la"
 alias mv="mv -v"
 alias pyserve="python -m SimpleHTTPServer 8000"
-alias vi="nvim"
 
 if [ ! -z $(which fzf) ]; then
   source <(fzf --zsh)
@@ -37,7 +36,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 autoload -U compinit; compinit
 
-export EDITOR="nvim"
+export EDITOR="vim"
 
 eval "$(starship init zsh)"
 

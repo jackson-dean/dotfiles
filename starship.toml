@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_orange)\
+(color_orange)\
 $os\
 $username\
 [](bg:color_yellow fg:color_orange)\
@@ -39,7 +39,7 @@ color_bg3 = '#949cbb'
 color_blue = '#99d1db'
 color_aqua = '#babbf1'
 color_green = '#a6d189'
-color_orange = '#eebebe'
+color_orange = '#f4b8e4'
 color_purple = '#b16286'
 color_red = '#e78284'
 color_yellow = '#e5c890'
@@ -48,6 +48,7 @@ color_white = '#fbf1c7'
 [os]
 disabled = false
 style = "bg:color_orange fg:color_fg0"
+format = "[ $symbol]($style)"
 
 [os.symbols]
 Windows = "󰍲"

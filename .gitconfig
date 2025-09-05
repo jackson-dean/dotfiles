@@ -1,6 +1,10 @@
 [user]
 	name = Jackson Dean
 	email = jckson.dean@gmail.com
+
+[include]
+	path = ~/.gitconfig_local
+
 [alias]
 	co = checkout
 	cob = "!git checkout -B jdean/$1; exit;"

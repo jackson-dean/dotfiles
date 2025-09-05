@@ -2,8 +2,8 @@
 	name = Jackson Dean
 	email = jckson.dean@gmail.com
 
-[include]
-	path = ~/.gitconfig_local
+[includeIf "gitdir:~/work/**"]
+	path = ~/.gitconfig-work
 
 [alias]
 	co = checkout

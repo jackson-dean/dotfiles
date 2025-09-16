@@ -5,11 +5,11 @@ alias ll="ls -la"
 alias mv="mv -v"
 alias pyserve="python -m SimpleHTTPServer 8000"
 alias lzd="lazydocker"
-alias acli_me='acli jira workitem search --jql "assignee = \"Jackson Dean\""'
 
 if [ ! -z $(which fzf) ]; then
   source <(fzf --zsh)
   alias fd='cd $(awk '"'"'{print $2}'"'"' ~/Library/autojump/autojump.txt | fzf --height 75% --layout=reverse --border)'
+  alias fb='git checkout $(git branch --format="%(refname:short)" | fzf --height 75% --layout=reverse --border)'
 fi
 
 # always use color, even when piping (to awk,grep,etc)
@@ -44,6 +44,8 @@ export BAT_THEME="gruvbox-dark"
 eval "$(starship init zsh)"
 
 [ -f ~/.polly_config ] && source ~/.polly_config
+
+[ -f ~/work/polly-cli/polly.sh ] && source ~/work/polly-cli/polly.sh
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/jacksondean/.rd/bin:$PATH"

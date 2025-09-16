@@ -21,7 +21,16 @@
 	d = diff --color-words
 	sync-upstream = !git checkout main && git fetch upstream main && git reset --hard upstream/main && git push -f origin main
   sync-origin = !git checkout main && git fetch origin main && git reset --hard origin/main
+	cleanup = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D"
+	trigger-ci = "!git commit --allow-empty -m 'empty commit to trigger ci' && git push"
 [color]
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
